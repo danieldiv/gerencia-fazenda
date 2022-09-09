@@ -3,6 +3,7 @@ package com.faculdade.fazenda.api.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -35,10 +36,12 @@ public class Lancamento {
 	private Double valor;
 
 	@NotNull
+	@Column(name = "tipo")
 	@Enumerated(EnumType.STRING)
 	private TipoLancamento tipoLancamento;
 
 	@NotNull
+	@Column(name = "categoria")
 	@Enumerated(EnumType.STRING)
 	private CategoriaLancamento categoriaLancamento;
 

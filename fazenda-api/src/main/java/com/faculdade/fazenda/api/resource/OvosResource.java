@@ -13,6 +13,7 @@ import com.faculdade.fazenda.api.repository.OvosRepository;
 @RestController
 @RequestMapping("/ovos")
 public class OvosResource {
+	
 	@Autowired
 	private OvosRepository ovosRepository;
 	
