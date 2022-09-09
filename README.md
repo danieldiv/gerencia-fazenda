@@ -1,4 +1,8 @@
-# gerencia-fazenda
+# Projeto da disciplinha de Engenharia de Software
+
+<p>
+  Este projeto tem o ojbetivo de auxiliar na gestao de fazendas ...
+</p>
 
 ![Java](https://img.shields.io/badge/Linguagem-Java-orange.svg)
 ![TypeScript](https://img.shields.io/badge/Linguagem-TypeScript-blue.svg)
