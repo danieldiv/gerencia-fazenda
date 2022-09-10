@@ -28,8 +28,8 @@ import com.faculdade.fazenda.api.event.RecursoCriadoEvent;
 import com.faculdade.fazenda.api.exceptionhandler.FazendaExceptionHandler.Erro;
 import com.faculdade.fazenda.api.model.Setor;
 import com.faculdade.fazenda.api.repository.SetorRepository;
-import com.faculdade.fazenda.api.service.SetorExistenteException;
 import com.faculdade.fazenda.api.service.SetorService;
+import com.faculdade.fazenda.api.service.exception.SetorExistenteException;
 
 @RestController
 @RequestMapping("/setores")

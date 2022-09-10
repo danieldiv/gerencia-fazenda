@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.faculdade.fazenda.api.model.Setor;
 import com.faculdade.fazenda.api.repository.SetorRepository;
+import com.faculdade.fazenda.api.service.exception.SetorExistenteException;
 
 @Service
 public class SetorService {

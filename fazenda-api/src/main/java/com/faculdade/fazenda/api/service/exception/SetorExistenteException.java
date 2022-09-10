@@ -1,4 +1,4 @@
-package com.faculdade.fazenda.api.service;
+package com.faculdade.fazenda.api.service.exception;
 
 public class SetorExistenteException extends RuntimeException {
 
