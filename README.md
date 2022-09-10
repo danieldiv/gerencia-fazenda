@@ -2,7 +2,7 @@
 
 ![Spring](https://img.shields.io/badge/IDE-SpringTool-success)
 ![VSCode](https://img.shields.io/badge/IDE-VSCode-blue)
-![ISOlinux](https://img.shields.io/badge/ISO-Linux-blueviolet)
+![ISOlinux](https://img.shields.io/badge/ISO-Ubuntu-blueviolet)
 ![ISOwin10](https://img.shields.io/badge/ISO-Win10-blue)
 ![Spring](https://img.shields.io/github/repo-size/danieldiv/gerencia-fazenda)
 
