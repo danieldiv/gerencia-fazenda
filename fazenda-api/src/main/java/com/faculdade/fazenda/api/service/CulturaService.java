@@ -15,12 +15,12 @@ public class CulturaService {
 	private CulturaRepository culturaRepository;
 
 	public Cultura atualizar(Long codigo, Cultura cultura) {
-		Cultura culturaSalva = buscarculturaPeloCodigo(codigo);
+		Cultura culturaSalva = buscarCulturaPeloCodigo(codigo);
 		BeanUtils.copyProperties(cultura, culturaSalva, "codigo");
 		return this.culturaRepository.save(culturaSalva);
 	}
 
-	private Cultura buscarculturaPeloCodigo(Long codigo) {
+	private Cultura buscarCulturaPeloCodigo(Long codigo) {
 		return this.culturaRepository.findById(codigo).orElseThrow(() -> new EmptyResultDataAccessException(1));
 	}
 }
