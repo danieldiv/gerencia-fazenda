@@ -23,14 +23,13 @@ public class SetorService {
 	}
 
 	public Setor atualizar(Long codigo, Setor setor) {
-		Setor setorSalvo = buscarSetorExistente(codigo);
+		Setor setorSalvo = buscarSetorPeloCodigo(codigo);
 		BeanUtils.copyProperties(setor, setorSalvo, "codigo");
 		return this.setorRepository.save(setorSalvo);
 	}
 
-	private Setor buscarSetorExistente(Long codigo) {
+	private Setor buscarSetorPeloCodigo(Long codigo) {
 		return this.setorRepository.findById(codigo).orElseThrow(() -> new EmptyResultDataAccessException(1));
-//		return this.setorRepository.findById(codigo).orElseThrow(() -> new IllegalArgumentException());
 	}
 
 	private void validarSetor(String descricao) {
