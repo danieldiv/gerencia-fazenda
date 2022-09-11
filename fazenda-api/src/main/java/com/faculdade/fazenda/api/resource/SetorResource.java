@@ -62,7 +62,6 @@ public class SetorResource {
 	@GetMapping("/{codigo}")
 	public ResponseEntity<Setor> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Setor> setor = this.setorRepository.findById(codigo);
-
 		return setor.isPresent() ? ResponseEntity.ok(setor.get()) : ResponseEntity.notFound().build();
 	}
 
@@ -70,6 +69,12 @@ public class SetorResource {
 	public ResponseEntity<Setor> atualizar(@PathVariable Long codigo, @Valid @RequestBody Setor setor) {
 		Setor setorSalvo = this.setorService.atualizar(codigo, setor);
 		return ResponseEntity.ok(setorSalvo);
+//		try {
+//			Setor setorSalvo = this.setorService.atualizar(codigo, setor);
+//			return ResponseEntity.ok(setorSalvo);
+//		} catch (IllegalArgumentException ex) {
+//			return ResponseEntity.notFound().build();
+//		}
 	}
 
 	@DeleteMapping("/{codigo}")

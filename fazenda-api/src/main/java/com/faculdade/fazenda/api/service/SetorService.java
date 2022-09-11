@@ -30,6 +30,7 @@ public class SetorService {
 
 	private Setor buscarSetorExistente(Long codigo) {
 		return this.setorRepository.findById(codigo).orElseThrow(() -> new EmptyResultDataAccessException(1));
+//		return this.setorRepository.findById(codigo).orElseThrow(() -> new IllegalArgumentException());
 	}
 
 	private void validarSetor(String descricao) {
