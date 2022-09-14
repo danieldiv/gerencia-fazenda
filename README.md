@@ -8,5 +8,5 @@
 ![Spring](https://img.shields.io/github/repo-size/danieldiv/gerencia-fazenda)
 
 <p>
-  Este projeto tem o ojbetivo de auxiliar na gestao de fazendas ...
+  Este projeto tem o objetivo de auxiliar na gestao de fazendas ...
 </p>
