@@ -1,6 +1,7 @@
 CREATE TABLE usuario (
 	codigo BIGINT PRIMARY KEY AUTO_INCREMENT,
-	usuario VARCHAR(50) NOT NULL,
+	nome VARCHAR(50) NOT NULL,
+	email VARCHAR(50) NOT NULL,
 	senha VARCHAR(150) NOT NULL
 );
 
@@ -17,9 +18,10 @@ CREATE TABLE usuario_permissao (
 	FOREIGN KEY(codigo_permissao) REFERENCES permissao(codigo)
 );
 
-INSERT INTO usuario (codigo, usuario, senha) VALUES (1, 'admin', 'admin');
-INSERT INTO usuario (codigo, usuario, senha) VALUES (2, 'daniel', 'daniel');
-INSERT INTO usuario (codigo, usuario, senha) VALUES (3, 'lucas', 'lucas');
+INSERT INTO usuario (codigo, nome, email, senha) values (1, 'Administrador', 'admin@email.com', '$2a$10$3ehx1eBrHpnM0OfdLsAxlOHP2wZ2bB01zbvtzO78XtM3UMumpz4Ra');
+INSERT INTO usuario (codigo, nome, email, senha) values (2, 'Daniel Sanches', 'daniel@email.com', '$2a$10$eQsBGCLjMR7RnKrBLKnTJOXIF5MEqfttZ7F86nL1zTfwVI8JHMZru');
+INSERT INTO usuario (codigo, nome, email, senha) VALUES (3, 'Lucas Silva', 'lucas@email.com', '$2a$10$XSDI.ARAo/LW3P/TGqVVt.cSwV8G2QBd8JaydCMNJFoyJgTT2Q6ty');
+INSERT INTO usuario (codigo, nome, email, senha) VALUES (4, 'Usuario Teste', 'usuario@email.com', '$2a$10$vsDdhL4FBy7LQ9SmiBwkdOTgPnxRH7pFO.1j48zl3Ombaa7jhmlmi');
 
 INSERT INTO permissao (codigo, descricao) VALUES (1, 'ROLE_CADASTRAR_SETOR');
 INSERT INTO permissao (codigo, descricao) VALUES (2, 'ROLE_PESQUISAR_SETOR');

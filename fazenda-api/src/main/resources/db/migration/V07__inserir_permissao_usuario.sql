@@ -77,3 +77,11 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 30);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 32);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 33);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 35);
+
+-- usuario
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 3);
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 4);
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 5);
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 9);
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 10);
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 11);
