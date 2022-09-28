@@ -13,6 +13,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,11 +49,13 @@ public class SetorResource {
 	private MessageSource messageSource;
 
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_SETOR') and hasAuthority('SCOPE_read')" )
 	public List<Setor> listar() {
 		return this.setorRepository.findAll();
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_SETOR') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Setor> criar(@Valid @RequestBody Setor setor, HttpServletResponse response) {
 		Setor setorSalvo = this.setorService.salvar(setor);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, setorSalvo.getCodigo()));
@@ -60,12 +63,14 @@ public class SetorResource {
 	}
 
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_SETOR') and hasAuthority('SCOPE_read')" )
 	public ResponseEntity<Setor> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Setor> setor = this.setorRepository.findById(codigo);
 		return setor.isPresent() ? ResponseEntity.ok(setor.get()) : ResponseEntity.notFound().build();
 	}
 
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_SETOR') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Setor> atualizar(@PathVariable Long codigo, @Valid @RequestBody Setor setor) {
 		Setor setorSalvo = this.setorService.atualizar(codigo, setor);
 		return ResponseEntity.ok(setorSalvo);
@@ -73,6 +78,7 @@ public class SetorResource {
 
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_SETOR') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long codigo) {
 		this.setorRepository.deleteById(codigo);
 	}
