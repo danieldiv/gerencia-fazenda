@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
-import { AuthGuard } from './auth.guard';
-import { environment } from './../../environments/environment';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+
+import { AuthGuard } from './auth.guard';
+import { environment } from './../../environments/environment';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FazendaHttpInterceptor } from './fazenda-http-interceptor';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 
-
 export function tokenGetter(): string {
-  return localStorage.getItem('item')!;
+  return localStorage.getItem('token')!;
 }
 
 @NgModule({
-  declarations: [
-    LoginFormComponent
-  ],
+  declarations: [LoginFormComponent],
   imports: [
     CommonModule,
     FormsModule,
