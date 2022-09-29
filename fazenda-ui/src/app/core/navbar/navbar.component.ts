@@ -21,7 +21,19 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.usuarioLogado = "Administrador"
+    this.usuarioLogado = this.auth.jwtPayload?.nome;
   }
 
+  temPermissao(permissao: string) {
+    return this.auth.temPermissao(permissao);
+  }
+
+  logout() {
+    this.auth.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      })
+      .catch(erro => this.errorHandler.handle(erro));
+    console.log('logout');
+  }
 }

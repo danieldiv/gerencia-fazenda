@@ -3,19 +3,19 @@
       <h3 class="navbar-usuario"> {{ usuarioLogado }}</h3>
 
       <ul class="navbar-menu">
-        <li class="navbar-menuitem" routerLinkActive="ativo">
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
           <a routerLink="/setores">Setores</a>
         </li>
 
-        <li class="navbar-menuitem" routerLinkActive="ativo" >
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
           <a routerLink="/funcionarios">Funcionarios</a>
         </li>
 
-        <li class="navbar-menuitem" routerLinkActive="ativo">
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
           <a routerLink="/equipamentos">Equipamentos</a>
         </li>
 
-        <li class="navbar-menuitem"><a href="javascript:;" >Logout</a></li>
+        <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
       </ul>
   </p-sidebar>
 
