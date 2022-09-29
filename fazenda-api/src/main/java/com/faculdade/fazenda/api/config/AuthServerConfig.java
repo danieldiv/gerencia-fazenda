@@ -25,7 +25,7 @@ import com.faculdade.fazenda.api.config.token.CustomTokenEnhancer;
 @Profile("oauth-security")
 @Configuration
 @EnableAuthorizationServer
-public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	
