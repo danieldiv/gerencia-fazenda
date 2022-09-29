@@ -6,7 +6,7 @@ import { mergeMap } from 'rxjs/operators';
 
 import { AuthService } from './auth.service';
 
-export class NotAuthenticatedError { }
+export class NotAuthenticadedError { }
 
 @Injectable()
 export class FazendaHttpInterceptor implements HttpInterceptor {
@@ -19,7 +19,7 @@ export class FazendaHttpInterceptor implements HttpInterceptor {
         .pipe(
           mergeMap(() => {
             if (this.auth.isAccessTokenInvalido()) {
-              throw new NotAuthenticatedError();
+              throw new NotAuthenticadedError();
             }
 
             req = req.clone({
