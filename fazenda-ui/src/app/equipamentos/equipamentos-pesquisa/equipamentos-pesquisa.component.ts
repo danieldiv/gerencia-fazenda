@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MenuItem } from 'primeng/api';
+
 @Component({
   selector: 'app-equipamentos-pesquisa',
   templateUrl: './equipamentos-pesquisa.component.html',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipamentosPesquisaComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+
   }
 
 }

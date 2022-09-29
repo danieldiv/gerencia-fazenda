@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ToastModule } from 'primeng/toast';
+import { SidebarModule } from 'primeng/sidebar';
 
 import { AuthService } from './../seguranca/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 
     ToastModule,
     ConfirmDialogModule,
+    SidebarModule,
 
     TranslateModule.forRoot({
       loader: {
@@ -50,7 +52,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     NavbarComponent,
 
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    SidebarModule,
+    // PanelMenuModule,
+    // MenuItem
   ],
   providers: [
     DatePipe,

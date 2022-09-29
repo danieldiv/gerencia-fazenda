@@ -2,6 +2,8 @@ import { AuthService } from './../../seguranca/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
+// import { MenuItem } from 'primeng/api'
+
 import { ErrorHandlerService } from './../error-handler.service';
 
 @Component({
@@ -12,16 +14,16 @@ import { ErrorHandlerService } from './../error-handler.service';
 export class NavbarComponent implements OnInit {
 
   exibindoMenu: boolean = false;
-  usuarioLogado: string = ''
+  usuarioLogado: string = '';
 
   constructor(
     private auth: AuthService,
     private errorHandler: ErrorHandlerService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
-    // this.usuarioLogado = thi
+    this.usuarioLogado = "Administrador"
   }
 
 }
