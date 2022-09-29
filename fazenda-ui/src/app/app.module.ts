@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
 
-import { ButtonModule } from 'primeng/button';
-
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +16,6 @@ import { ButtonModule } from 'primeng/button';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ButtonModule,
 
     CoreModule,
     SegurancaModule,

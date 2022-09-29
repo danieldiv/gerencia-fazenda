@@ -54,8 +54,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ToastModule,
     ConfirmDialogModule,
     SidebarModule,
-    // PanelMenuModule,
-    // MenuItem
   ],
   providers: [
     DatePipe,

@@ -19,9 +19,9 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
-    // this.translateService.setDefaultLang('pt');
-    // this.translateService.get('primeng')
-    //   .subscribe(res => this.config.setTranslation(res));
+    this.translateService.setDefaultLang('pt');
+    this.translateService.get('primeng')
+      .subscribe(res => this.config.setTranslation(res));
   }
 
   exibindoNavbar() {
