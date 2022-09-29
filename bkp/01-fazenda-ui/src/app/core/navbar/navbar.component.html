@@ -1,0 +1,62 @@
+<nav class="navbar">
+<p-sidebar [(visible)]="exibindoMenu" [baseZIndex]="10000" position="right">
+      <h3 class="navbar-usuario"> {{ usuarioLogado }}</h3>
+
+      <ul class="navbar-menu">
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
+          <a routerLink="/setores">Setores</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
+          <a routerLink="/funcionarios">Funcionarios</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
+          <a routerLink="/equipamentos">Equipamentos</a>
+        </li>
+
+        <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
+      </ul>
+  </p-sidebar>
+
+  <div class="container">
+    <div class="grid">
+      <div class="col-12">
+        <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- <p-button type="text" (click)="exibindoMenu = true" icon="pi pi-plus" label="Show"></p-button> -->
+
+  <!-- <nav>
+
+    <div class="container">
+      <div class="grid">
+        <div class="col-12">
+          <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="navbar-menu" [hidden]="!exibindoMenu">
+      <li class="navbar-usuario">{{ usuarioLogado }}</li>
+
+      <li class="navbar-menuitem" routerLinkActive="ativo">
+        <a routerLink="/setores">Setores</a>
+      </li>
+
+      <li class="navbar-menuitem" routerLinkActive="ativo" >
+        <a routerLink="/funcionarios">Funcionarios</a>
+      </li>
+
+      <li class="navbar-menuitem" routerLinkActive="ativo">
+        <a routerLink="/esquipamentos">Equipamentos</a>
+      </li>
+
+      <li class="navbar-menuitem"><a href="javascript:;" >Logout</a></li>
+    </ul>
+
+  </nav>
+-->
+</nav>
