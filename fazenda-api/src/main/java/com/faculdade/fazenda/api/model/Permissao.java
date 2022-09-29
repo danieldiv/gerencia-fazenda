@@ -1,11 +1,8 @@
 package com.faculdade.fazenda.api.model;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "permissao")
@@ -13,8 +10,6 @@ public class Permissao {
 
 	@Id
 	private Long codigo;
-
-	@NotNull
 	private String descricao;
 
 	public Long getCodigo() {
@@ -35,7 +30,10 @@ public class Permissao {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(codigo);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
 	}
 
 	@Override
@@ -47,7 +45,12 @@ public class Permissao {
 		if (getClass() != obj.getClass())
 			return false;
 		Permissao other = (Permissao) obj;
-		return Objects.equals(codigo, other.codigo);
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
 	}
 
 }

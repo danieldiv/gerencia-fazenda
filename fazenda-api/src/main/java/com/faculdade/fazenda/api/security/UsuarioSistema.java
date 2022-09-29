@@ -8,8 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import com.faculdade.fazenda.api.model.Usuario;
 
 public class UsuarioSistema extends User {
-
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
 	private Usuario usuario;
 
@@ -21,5 +20,4 @@ public class UsuarioSistema extends User {
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
 }

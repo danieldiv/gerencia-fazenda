@@ -1,88 +1,159 @@
 package com.faculdade.fazenda.api.config;
 
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.time.Duration;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
-import org.springframework.security.oauth2.provider.token.TokenEnhancer;
-import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
-import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
-import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.NimbusJwsEncoder;
+import org.springframework.security.oauth2.server.authorization.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.OAuth2TokenCustomizer;
+import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
+import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
+import org.springframework.security.oauth2.server.authorization.config.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.config.ProviderSettings;
+import org.springframework.security.oauth2.server.authorization.config.TokenSettings;
+import org.springframework.security.web.SecurityFilterChain;
 
-import com.faculdade.fazenda.api.config.token.CustomTokenEnhancer;
+import com.faculdade.fazenda.api.config.property.FazendaApiProperty;
+import com.faculdade.fazenda.api.security.UsuarioSistema;
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.jwk.source.JWKSource;
+import com.nimbusds.jose.proc.SecurityContext;
 
-@SuppressWarnings("deprecation")
-@Profile("oauth-security")
 @Configuration
-@EnableAuthorizationServer
-public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
-	@Autowired
-	private AuthenticationManager authenticationManager;
-	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-	@Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory()
-				.withClient("angular")
-				.secret("$2a$10$UAc049fUm6Bxy8X/.mpn8.PfD2ncb4ZgvmEa5Hb.JOGVJNX1ampgG") // @ngul@r0
-				.scopes("read", "write")
-				.authorizedGrantTypes("password", "refresh_token")
-				.accessTokenValiditySeconds(10) //1800
-				.refreshTokenValiditySeconds(10) //3600 * 24
-			.and()
-				.withClient("mobile")
-				.secret(passwordEncoder.encode("m0b1le")) // Forma insegura
-				.scopes("read")
-				.authorizedGrantTypes("password", "refresh_token")
-				.accessTokenValiditySeconds(10) //1800
-				.refreshTokenValiditySeconds(10);//3600 * 24
-	}
-	
-	@Override
-	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+@Profile("oauth-security")
+public class AuthServerConfig {
 
-		TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
-		tokenEnhancerChain.setTokenEnhancers(Arrays.asList(tokenEnhancer(), accessTokenConverter()));
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-		endpoints
-			.authenticationManager(authenticationManager)
-			.userDetailsService(userDetailsService)
-			.tokenEnhancer(tokenEnhancerChain)
-			.tokenStore(tokenStore())
-			.reuseRefreshTokens(false);
-	}
-	
-	@Bean
-	public JwtAccessTokenConverter accessTokenConverter() {
-		JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
+    @Autowired
+    private FazendaApiProperty fazendaApiProperty;
 
-		accessTokenConverter.setSigningKey("3032885ba9cd6621bcc4e7d6b6c35c2b");
+    @Bean
+    public RegisteredClientRepository registeredClientRepository() {
+        RegisteredClient angularClient = RegisteredClient
+                .withId(UUID.randomUUID().toString())
+                .clientId("angular")
+                .clientSecret(passwordEncoder.encode("@ngul@r0"))
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+                .redirectUris(uris -> uris.addAll(fazendaApiProperty.getSeguranca().getRedirectsPermitidos()))
+                .scope("read")
+                .scope("write")
+                .tokenSettings(TokenSettings.builder()
+                        .accessTokenTimeToLive(Duration.ofMinutes(30))
+                        .refreshTokenTimeToLive(Duration.ofDays(24))
+                        .build())
+                .clientSettings(ClientSettings.builder()
+                                .requireAuthorizationConsent(true)
+                                .build())
+                .build();
 
-		return accessTokenConverter;
-	}
+        RegisteredClient mobileClient = RegisteredClient
+                .withId(UUID.randomUUID().toString())
+                .clientId("mobile")
+                .clientSecret(passwordEncoder.encode("m0b1le"))
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+                .redirectUris(uris -> uris.addAll(fazendaApiProperty.getSeguranca().getRedirectsPermitidos()))
+                .scope("read")
+                .tokenSettings(TokenSettings.builder()
+                        .accessTokenTimeToLive(Duration.ofMinutes(30))
+                        .refreshTokenTimeToLive(Duration.ofDays(24))
+                        .build())
+                .clientSettings(ClientSettings.builder()
+                        .requireAuthorizationConsent(false)
+                        .build())
+                .build();
 
-	@Bean
-	public TokenStore tokenStore() {
-		return new JwtTokenStore(accessTokenConverter());
-	}
 
-	@Bean
-	public TokenEnhancer tokenEnhancer() {
-		return new CustomTokenEnhancer();
-	}
+        return new InMemoryRegisteredClientRepository(
+                Arrays.asList(
+                        angularClient,
+                        mobileClient
+                )
+        );
+    }
+
+    @Bean
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    public SecurityFilterChain authServerFilterChain(HttpSecurity http) throws Exception {
+        OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+        return http.formLogin(Customizer.withDefaults()).build();
+    }
+
+    @Bean
+    public OAuth2TokenCustomizer<JwtEncodingContext> jwtBuildCustomizer() {
+        return (context) -> {
+            UsernamePasswordAuthenticationToken authenticationToken = context.getPrincipal();
+            UsuarioSistema usuarioSistema = (UsuarioSistema) authenticationToken.getPrincipal();
+
+            Set<String> authorities = new HashSet<>();
+            for (GrantedAuthority grantedAuthority : usuarioSistema.getAuthorities()) {
+                authorities.add(grantedAuthority.getAuthority());
+            }
+
+            context.getClaims().claim("nome", usuarioSistema.getUsuario().getNome());
+            context.getClaims().claim("authorities", authorities);
+        };
+    }
+
+    @Bean
+    public JWKSet jwkSet() throws Exception {
+        final InputStream inputStream = new ClassPathResource("keystore/algamoney.jks").getInputStream();
+
+        final KeyStore keyStore = KeyStore.getInstance("JKS");
+        keyStore.load(inputStream, "123456".toCharArray());
+
+        RSAKey rsaKey = RSAKey.load(
+                keyStore,
+                "algamoney",
+                "123456".toCharArray()
+        );
+
+        return new JWKSet(rsaKey);
+    }
+
+    @Bean
+    public JWKSource<SecurityContext> jwkSource(JWKSet jwkSet) {
+        return (jwkSelector, securityContext) -> jwkSelector.select(jwkSet);
+    }
+
+    @Bean
+    public JwtEncoder jwtEncoder(JWKSource<SecurityContext> jwkSource) {
+        return new NimbusJwsEncoder(jwkSource);
+    }
+
+    @Bean
+    public ProviderSettings providerSettings() {
+        return ProviderSettings.builder()
+                .issuer(fazendaApiProperty.getSeguranca().getAuthServerUrl())
+                .build();
+    }
+
 }
