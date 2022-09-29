@@ -7,7 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
-import { SegurancaRoutingModule } from './seguranca/seguranca-routing.module';
+
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,12 @@ import { SegurancaRoutingModule } from './seguranca/seguranca-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ButtonModule,
 
     CoreModule,
     SegurancaModule,
 
-    AppRoutingModule,
-     SegurancaRoutingModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

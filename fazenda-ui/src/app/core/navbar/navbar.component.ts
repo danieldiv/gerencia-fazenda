@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,12 +15,13 @@ export class NavbarComponent implements OnInit {
   usuarioLogado: string = ''
 
   constructor(
-    // private auth: servico
+    private auth: AuthService,
     private errorHandler: ErrorHandlerService,
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // this.usuarioLogado = thi
   }
 
 }

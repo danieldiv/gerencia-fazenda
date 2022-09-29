@@ -1,1 +1,33 @@
-<p>navbar workss!</p>
+<nav>
+
+  <div class="container">
+    <div class="grid">
+      <div class="col-12">
+        <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <ul class="navbar-menu" [hidden]="!exibindoMenu">
+    <li class="navbar-usuario">{{ usuarioLogado }}</li>
+
+    <li class="navbar-menuitem" routerLinkActive="ativo">
+      <a>Dashboard</a>
+    </li>
+
+    <li class="navbar-menuitem" routerLinkActive="ativo" >
+      <a>Lançamentos</a>
+    </li>
+
+    <li class="navbar-menuitem" routerLinkActive="ativo">
+      <a>Pessoas</a>
+    </li>
+
+    <li class="navbar-menuitem" routerLinkActive="ativo" >
+      <a>Relatório</a>
+    </li>
+
+    <li class="navbar-menuitem"><a href="javascript:;" >Logout</a></li>
+  </ul>
+
+</nav>
