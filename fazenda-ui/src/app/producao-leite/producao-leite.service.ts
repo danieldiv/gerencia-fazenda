@@ -10,7 +10,7 @@ export class ProducaoLeiteService {
   producaoLeiteUrl: string;
 
   constructor(private http: HttpClient) {
-    this.producaoLeiteUrl = `${environment.apiUrl}/producao-leite`
+    this.producaoLeiteUrl = `${environment.apiUrl}/producaoleite`
   }
 
   listarTodos(): Promise<any> {

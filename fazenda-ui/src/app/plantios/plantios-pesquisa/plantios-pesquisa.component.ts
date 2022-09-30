@@ -25,7 +25,7 @@ export class PlantiosPesquisaComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de plantios');
-    // this.pesquisar();
+    this.pesquisar();
   }
 
   pesquisar() {
