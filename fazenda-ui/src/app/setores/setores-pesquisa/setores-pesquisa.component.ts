@@ -1,8 +1,10 @@
-import { Title } from '@angular/platform-browser';
-import { ErrorHandlerService } from './../../core/error-handler.service';
-import { ConfirmationService } from 'primeng/api';
-import { SetorService } from './../setor.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+import { ConfirmationService, MessageService } from 'primeng/api';
+
+import { ErrorHandlerService } from './../../core/error-handler.service';
+import { SetorService } from './../setor.service';
 
 @Component({
   selector: 'app-setores-pesquisa',
@@ -12,11 +14,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class SetoresPesquisaComponent implements OnInit {
 
   setores: any[] = [];
-  @ViewChild('tabela') grid: any;
+  @ViewChild('tabelaSetores') grid: any;
 
   constructor(
     private setorService: SetorService,
-    // private messageService: MessageService,
+    private messageService: MessageService,
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title

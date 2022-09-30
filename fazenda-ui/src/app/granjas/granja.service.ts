@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class GranjaService {
 
-  constructor() { }
+  granjaUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.granjaUrl = `${environment.apiUrl}/granjas`
+  }
+
+  listarTodos(): Promise<any> {
+    console.log(this.granjaUrl);
+    return this.http.get(this.granjaUrl)
+      .toPromise();
+  }
 }

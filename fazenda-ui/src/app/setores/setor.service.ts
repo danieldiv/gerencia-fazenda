@@ -17,6 +17,5 @@ export class SetorService {
     console.log(this.setorUrl);
     return this.http.get(this.setorUrl)
       .toPromise();
-    // .then((response: any) => response['content']);
   }
 }

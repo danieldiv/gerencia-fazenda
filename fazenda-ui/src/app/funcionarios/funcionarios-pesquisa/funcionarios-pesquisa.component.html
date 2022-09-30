@@ -1,3 +1,33 @@
 <div class="container">
-  <h1>Funcionarios</h1>
+
+  <div class="col-12">
+    <h1>Funcionarios</h1>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-card>
+        <p-table [value]="funcionarios" responsiveLayout="scroll" [responsive]="true" #tabelaFuncionario>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-funcionario>
+              <tr>
+                  <td>{{funcionario.codigo}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">
+                Nenhum funcionarios encontrado
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
 </div>

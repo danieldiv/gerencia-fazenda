@@ -1,1 +1,33 @@
-<p>campos-pesquisa works!</p>
+<div class="container">
+
+  <div class="col-12">
+    <h1>Campos</h1>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-card>
+        <p-table [value]="campos" responsiveLayout="scroll" [responsive]="true" #tabelaCampos>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-campo>
+              <tr>
+                  <td>{{campo.codigo}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">
+                Nenhum campo encontrado
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+</div>

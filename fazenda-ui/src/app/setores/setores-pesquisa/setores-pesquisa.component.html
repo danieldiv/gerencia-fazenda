@@ -1,13 +1,13 @@
 <div class="container">
 
   <div class="col-12">
-      <h1>Setores</h1>
-    </div>
+    <h1>Setores</h1>
+  </div>
 
   <div class="grid">
     <div class="col-12">
       <p-card>
-        <p-table [value]="setores" responsiveLayout="scroll" [responsive]="true" #tabela>
+        <p-table [value]="setores" responsiveLayout="scroll" [responsive]="true" #tabelaSetores>
           <ng-template pTemplate="header">
               <tr>
                   <th>Codigo</th>
@@ -22,7 +22,7 @@
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="5">
+              <td colspan="2">
                 Nenhum setor encontrado
               </td>
             </tr>
