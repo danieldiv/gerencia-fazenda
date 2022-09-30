@@ -1,3 +1,4 @@
+import { ErrorHandlerService } from './../core/error-handler.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -15,6 +16,7 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
+    private errorHandler: ErrorHandlerService,
     private jwtHelper: JwtHelperService
   ) {
     this.carregarToken();
