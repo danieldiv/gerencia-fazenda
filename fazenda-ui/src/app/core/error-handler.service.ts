@@ -39,7 +39,6 @@ export class ErrorHandlerService {
       msg = 'Erro ao processar serviço remoto. Tente novamente.';
       console.error('Ocorreu um erro', errorResponse);
     }
-    console.log('passou aki')
     this.messageService.add({ severity: 'error', detail: msg });
   }
 }
