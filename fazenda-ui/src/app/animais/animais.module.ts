@@ -1,8 +1,15 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { AnimaisRoutingModule } from './animais-routing.module';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+
+import { SharedModule } from './../shared/shared.module';
+
 import { AnimaisPesquisaComponent } from './animais-pesquisa/animais-pesquisa.component';
+import { AnimaisRoutingModule } from './animais-routing.module';
 
 
 @NgModule({
@@ -11,6 +18,13 @@ import { AnimaisPesquisaComponent } from './animais-pesquisa/animais-pesquisa.co
   ],
   imports: [
     CommonModule,
+
+    ButtonModule,
+    TableModule,
+    PanelModule,
+    CardModule,
+
+    SharedModule,
     AnimaisRoutingModule
   ]
 })

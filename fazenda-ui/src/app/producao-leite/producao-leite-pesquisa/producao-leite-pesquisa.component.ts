@@ -25,8 +25,8 @@ export class ProducaoLeitePesquisaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.title.setTitle('Pesquisa de producaoLeite');
-    this.pesquisar();
+    this.title.setTitle('Pesquisa de producao de leite');
+    // this.pesquisar();
   }
 
   pesquisar() {

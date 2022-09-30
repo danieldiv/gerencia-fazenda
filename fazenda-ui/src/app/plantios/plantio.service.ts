@@ -10,7 +10,7 @@ export class PlantioService {
   plantio: string;
 
   constructor(private http: HttpClient) {
-    this.plantio = `${environment.apiUrl}/plantio`
+    this.plantio = `${environment.apiUrl}/plantios`
   }
 
   listarTodos(): Promise<any> {
