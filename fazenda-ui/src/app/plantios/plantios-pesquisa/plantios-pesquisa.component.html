@@ -1,1 +1,33 @@
-<p>plantios-pesquisa works!</p>
+<div class="container">
+
+  <div class="col-12">
+    <h1>Plantios</h1>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-card>
+        <p-table [value]="plantios" responsiveLayout="scroll" [responsive]="true" #tabelaPlantio>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-plantio>
+              <tr>
+                  <!-- <td>{{plantio.codigo}}</td> -->
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">
+                Nenhum plantio encontrado
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+</div>

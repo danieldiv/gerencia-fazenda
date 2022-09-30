@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+
+import { SharedModule } from './../shared/shared.module';
+
 import { PastosRoutingModule } from './pastos-routing.module';
 import { PastosPesquisaComponent } from './pastos-pesquisa/pastos-pesquisa.component';
 
@@ -11,6 +18,13 @@ import { PastosPesquisaComponent } from './pastos-pesquisa/pastos-pesquisa.compo
   ],
   imports: [
     CommonModule,
+
+    ButtonModule,
+    TableModule,
+    PanelModule,
+    CardModule,
+
+    SharedModule,
     PastosRoutingModule
   ]
 })

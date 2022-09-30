@@ -1,33 +1,36 @@
 <div class="container">
 
   <div class="col-12">
-      <h1>Setores</h1>
-    </div>
+    <h1>Setores</h1>
+  </div>
 
   <div class="grid">
     <div class="col-12">
-      <p-table [value]="setores" responsiveLayout="scroll" [responsive]="true" #tabela>
-        <ng-template pTemplate="header">
+      <p-card>
+        <p-table [value]="setores" responsiveLayout="scroll" [responsive]="true" #tabelaSetores>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+                  <th>Descricao</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-setor>
+              <tr>
+                  <td>{{setor.codigo}}</td>
+                  <td>{{setor.descricao}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
             <tr>
-                <th>Codigo</th>
-                <th>Descricao</th>
+              <td colspan="2">
+                Nenhum setor encontrado
+              </td>
             </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-setor>
-            <tr>
-                <td>{{setor.codigo}}</td>
-                <td>{{setor.descricao}}</td>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="emptymessage">
-          <tr>
-            <td colspan="5">
-              Nenhum setor encontrado
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
+          </ng-template>
+        </p-table>
+      </p-card>
     </div>
   </div>
 
 </div>
+

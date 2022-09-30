@@ -1,1 +1,33 @@
-<p>culturas-pesquisa works!</p>
+<div class="container">
+
+  <div class="col-12">
+    <h1>Culturas</h1>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-card>
+        <p-table [value]="culturas" responsiveLayout="scroll" [responsive]="true" #tabelaCultura>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-cultura>
+              <tr>
+                  <td>{{cultura.codigo}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">
+                Nenhum cultura encontrado
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+</div>

@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class AnimalService {
 
-  constructor() { }
+  animalUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.animalUrl = `${environment.apiUrl}/animais`
+  }
+
+  listarTodos(): Promise<any> {
+    console.log(this.animalUrl);
+    return this.http.get(this.animalUrl)
+      .toPromise();
+  }
 }

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { LancamentoService } from './../lancamento.service';
+import { ErrorHandlerService } from './../../core/error-handler.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-lancamentos-pesquisa',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LancamentosPesquisaComponent implements OnInit {
 
-  constructor() { }
+  lancamentos: any[] = [];
+  @ViewChild('tabelaLancamentos') grid: any;
+
+  constructor(
+    private lancamentoService: LancamentoService,
+    private messageService: MessageService,
+    private errorHandler: ErrorHandlerService,
+    private confirmationService: ConfirmationService,
+    private title: Title
+  ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Pesquisa de lancamentos');
+    this.pesquisar();
+  }
+
+  pesquisar() {
+    this.lancamentoService.listarTodos()
+      .then((dados: any) => {
+        this.lancamentos = dados;
+        console.log(this.lancamentos)
+      })
   }
 
 }

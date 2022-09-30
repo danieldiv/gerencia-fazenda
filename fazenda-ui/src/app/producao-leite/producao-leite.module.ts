@@ -1,8 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { ProducaoLeiteRoutingModule } from './producao-leite-routing.module';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+
+import { SharedModule } from './../shared/shared.module';
 import { ProducaoLeitePesquisaComponent } from './producao-leite-pesquisa/producao-leite-pesquisa.component';
+import { ProducaoLeiteRoutingModule } from './producao-leite-routing.module';
 
 
 @NgModule({
@@ -11,6 +17,13 @@ import { ProducaoLeitePesquisaComponent } from './producao-leite-pesquisa/produc
   ],
   imports: [
     CommonModule,
+
+    ButtonModule,
+    TableModule,
+    PanelModule,
+    CardModule,
+
+    SharedModule,
     ProducaoLeiteRoutingModule
   ]
 })

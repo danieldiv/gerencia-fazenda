@@ -1,3 +1,4 @@
+import { AuthGuard } from './../seguranca/auth.guard';
 import { OvosPesquisaComponent } from './ovos-pesquisa/ovos-pesquisa.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,7 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: OvosPesquisaComponent
+    component: OvosPesquisaComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_PESQUISAR_OVOS'] }
   }
 ];
 

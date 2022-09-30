@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class CulturaService {
 
-  constructor() { }
+  culturaUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.culturaUrl = `${environment.apiUrl}/culturas`
+  }
+
+  listarTodos(): Promise<any> {
+    console.log(this.culturaUrl);
+    return this.http.get(this.culturaUrl)
+      .toPromise();
+  }
 }

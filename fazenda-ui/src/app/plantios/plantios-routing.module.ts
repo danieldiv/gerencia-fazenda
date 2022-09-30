@@ -1,3 +1,4 @@
+import { AuthGuard } from './../seguranca/auth.guard';
 import { PlantiosPesquisaComponent } from './plantios-pesquisa/plantios-pesquisa.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,7 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: PlantiosPesquisaComponent
+    component: PlantiosPesquisaComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_PESQUISAR_PLANTIO'] }
   }
 ];
 

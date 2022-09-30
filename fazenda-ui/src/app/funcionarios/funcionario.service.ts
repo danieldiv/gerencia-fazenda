@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class FuncionarioService {
 
-  constructor() { }
+  funcionarioUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.funcionarioUrl = `${environment.apiUrl}/funcionarios`
+  }
+
+  listarTodos(): Promise<any> {
+    console.log(this.funcionarioUrl);
+    return this.http.get(this.funcionarioUrl)
+      .toPromise();
+  }
 }

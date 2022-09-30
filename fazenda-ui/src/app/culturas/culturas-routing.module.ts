@@ -1,3 +1,4 @@
+import { AuthGuard } from './../seguranca/auth.guard';
 import { CulturasPesquisaComponent } from './culturas-pesquisa/culturas-pesquisa.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -5,7 +6,9 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: CulturasPesquisaComponent
+    component: CulturasPesquisaComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_PESQUISAR_CULTURA'] }
   }
 ];
 

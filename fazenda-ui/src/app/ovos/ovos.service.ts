@@ -1,3 +1,5 @@
+import { environment } from './../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +7,15 @@ import { Injectable } from '@angular/core';
 })
 export class OvosService {
 
-  constructor() { }
+  ovosUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.ovosUrl = `${environment.apiUrl}/ovos`
+  }
+
+  listarTodos(): Promise<any> {
+    console.log(this.ovosUrl);
+    return this.http.get(this.ovosUrl)
+      .toPromise();
+  }
 }

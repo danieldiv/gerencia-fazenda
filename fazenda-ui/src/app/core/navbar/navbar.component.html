@@ -3,16 +3,52 @@
       <h3 class="navbar-usuario"> {{ usuarioLogado }}</h3>
 
       <ul class="navbar-menu">
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_ANIMAL')">
+          <a routerLink="/animais">Animais</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_CAMPO')">
+          <a routerLink="/campos">Campos</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_CULTURA')">
+          <a routerLink="/culturas">Culturas</a>
+        </li>
+
         <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
           <a routerLink="/setores">Setores</a>
         </li>
 
-        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_EQUIPAMENTO')">
+          <a routerLink="/equipamentos">Equipamentos</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_FUNCIONARIO')">
           <a routerLink="/funcionarios">Funcionarios</a>
         </li>
 
-        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_SETOR')">
-          <a routerLink="/equipamentos">Equipamentos</a>
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_GRANJA')">
+          <a routerLink="/granjas">granjas</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_LANCAMENTO')">
+          <a routerLink="/lancamentos">Lancamentos</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_OVOS')">
+          <a routerLink="/ovos">Ovos</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_PASTO')">
+          <a routerLink="/pastos">Pastos</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_PLANTIO')">
+          <a routerLink="/plantios">Plantios</a>
+        </li>
+
+        <li class="navbar-menuitem" routerLinkActive="ativo" *ngIf="temPermissao('ROLE_PESQUISAR_PRODUCAO_LEITE')">
+          <a routerLink="/producao-leite">Producao de Leite</a>
         </li>
 
         <li class="navbar-menuitem"><a href="javascript:;" (click)="logout()">Logout</a></li>
