@@ -11,16 +11,20 @@
           <ng-template pTemplate="header">
               <tr>
                   <th>Codigo</th>
+                  <th>Descricao</th>
+                  <th>Tipo</th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-animal>
               <tr>
                   <td>{{animal.codigo}}</td>
+                  <td>{{animal.descricao}}</td>
+                  <td>{{animal.tipoAnimal}}</td>
               </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="1">
+              <td colspan="3">
                 Nenhum animal encontrado
               </td>
             </tr>

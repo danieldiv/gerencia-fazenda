@@ -32,6 +32,7 @@ export class GranjasPesquisaComponent implements OnInit {
     this.granjaService.listarTodos()
       .then((dados: any) => {
         this.granjas = dados;
+        console.log(this.granjas);
       })
   }
 

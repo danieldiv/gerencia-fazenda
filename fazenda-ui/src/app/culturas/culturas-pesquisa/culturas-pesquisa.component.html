@@ -11,11 +11,13 @@
           <ng-template pTemplate="header">
               <tr>
                   <th>Codigo</th>
+                  <th>Descricao</th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-cultura>
               <tr>
                   <td>{{cultura.codigo}}</td>
+                  <td>{{cultura.descricao}}</td>
               </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
