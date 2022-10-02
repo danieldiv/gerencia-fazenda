@@ -19,7 +19,7 @@
 | campo          | :red_circle: :heavy_check_mark:    | :red_circle: :x:                | :green_circle: :x:                | :green_circle: :x:                |
 | cultura        | :red_circle: :heavy_check_mark:    | :red_circle: :x:                | :green_circle: :x:                | :green_circle: :x:                |
 | equipamento    | :green_circle: :heavy_check_mark:  | :green_circle: :x:              | :green_circle: :x:                | :green_circle: :x:                |
-| funcionario    | :red_circle: :x:                   | :red_circle: :x:                | :green_circle: :x:                | :green_circle: :x:                |
+| funcionario    | :red_circle: :heavy_check_mark:    | :red_circle: :x:                | :green_circle: :x:                | :green_circle: :x:                |
 | granja         | :red_circle: :heavy_check_mark:    | :red_circle: :x:                | :green_circle: :x:                | :green_circle: :x:                |
 | lancamento     | :green_circle: :x:                 | :green_circle: :x:              | :green_circle: :x:                | :green_circle: :x:                |
 | ovos           | :yellow_circle: :x:                | :yellow_circle: :x:             | :yellow_circle: :x:               | :yellow_circle: :x:               |
