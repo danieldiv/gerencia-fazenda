@@ -32,7 +32,6 @@ export class FuncionariosPesquisaComponent implements OnInit {
     this.funcionarioService.listarTodos()
       .then((dados: any) => {
         this.funcionarios = dados;
-        console.log(this.funcionarios)
       })
   }
 

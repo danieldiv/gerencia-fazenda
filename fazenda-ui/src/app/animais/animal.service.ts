@@ -14,7 +14,6 @@ export class AnimalService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.animalUrl);
     return this.http.get(this.animalUrl)
       .toPromise();
   }

@@ -32,7 +32,6 @@ export class EquipamentosPesquisaComponent implements OnInit {
     this.equipamentoService.listarTodos()
       .then((dados: any) => {
         this.equipamentos = dados;
-        console.log(this.equipamentos)
       })
   }
 

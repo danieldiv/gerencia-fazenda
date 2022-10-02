@@ -14,7 +14,6 @@ export class PastoService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.pastoUrl);
     return this.http.get(this.pastoUrl)
       .toPromise();
   }

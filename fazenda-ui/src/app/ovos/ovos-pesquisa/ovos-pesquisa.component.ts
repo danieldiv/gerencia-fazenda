@@ -32,7 +32,6 @@ export class OvosPesquisaComponent implements OnInit {
     this.ovosService.listarTodos()
       .then((dados: any) => {
         this.ovos = dados;
-        console.log(this.ovos)
       })
   }
 

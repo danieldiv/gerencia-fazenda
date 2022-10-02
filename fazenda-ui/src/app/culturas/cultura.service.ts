@@ -14,7 +14,6 @@ export class CulturaService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.culturaUrl);
     return this.http.get(this.culturaUrl)
       .toPromise();
   }

@@ -32,7 +32,6 @@ export class PastosPesquisaComponent implements OnInit {
     this.pastoService.listarTodos()
       .then((dados: any) => {
         this.pastos = dados;
-        console.log(this.pastos)
       })
   }
 

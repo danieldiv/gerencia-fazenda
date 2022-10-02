@@ -14,7 +14,6 @@ export class OvosService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.ovosUrl);
     return this.http.get(this.ovosUrl)
       .toPromise();
   }
