@@ -14,7 +14,6 @@ export class CampoService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.campoUrl);
     return this.http.get(this.campoUrl)
       .toPromise();
   }

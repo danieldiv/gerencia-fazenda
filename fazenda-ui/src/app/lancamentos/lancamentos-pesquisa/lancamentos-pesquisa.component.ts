@@ -32,7 +32,6 @@ export class LancamentosPesquisaComponent implements OnInit {
     this.lancamentoService.listarTodos()
       .then((dados: any) => {
         this.lancamentos = dados;
-        console.log(this.lancamentos)
       })
   }
 

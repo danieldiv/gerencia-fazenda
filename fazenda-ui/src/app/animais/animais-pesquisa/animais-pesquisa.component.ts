@@ -31,7 +31,6 @@ export class AnimaisPesquisaComponent implements OnInit {
     this.animalService.listarTodos()
       .then((dados: any) => {
         this.animais = dados;
-        console.log(this.animais)
       })
   }
 

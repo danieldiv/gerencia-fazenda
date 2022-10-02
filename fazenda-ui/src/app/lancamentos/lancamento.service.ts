@@ -14,7 +14,6 @@ export class LancamentoService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.lancamentoUrl);
     return this.http.get(this.lancamentoUrl)
       .toPromise();
   }

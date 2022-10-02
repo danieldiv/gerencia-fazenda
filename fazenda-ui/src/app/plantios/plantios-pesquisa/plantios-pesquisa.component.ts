@@ -32,7 +32,6 @@ export class PlantiosPesquisaComponent implements OnInit {
     this.plantioService.listarTodos()
       .then((dados: any) => {
         this.plantios = dados;
-        console.log(this.plantios)
       })
   }
 }

@@ -14,7 +14,6 @@ export class GranjaService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.granjaUrl);
     return this.http.get(this.granjaUrl)
       .toPromise();
   }

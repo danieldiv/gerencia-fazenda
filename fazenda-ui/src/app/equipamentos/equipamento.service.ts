@@ -14,7 +14,6 @@ export class EquipamentoService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.equipamentoUrl);
     return this.http.get(this.equipamentoUrl)
       .toPromise();
   }

@@ -7,15 +7,14 @@ import { Injectable } from '@angular/core';
 })
 export class PlantioService {
 
-  plantio: string;
+  plantioUrl: string;
 
   constructor(private http: HttpClient) {
-    this.plantio = `${environment.apiUrl}/plantios`
+    this.plantioUrl = `${environment.apiUrl}/plantios`
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.plantio);
-    return this.http.get(this.plantio)
+    return this.http.get(this.plantioUrl)
       .toPromise();
   }
 }

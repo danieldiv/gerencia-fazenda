@@ -32,7 +32,6 @@ export class CamposPesquisaComponent implements OnInit {
     this.campoService.listarTodos()
       .then((dados: any) => {
         this.campos = dados;
-        console.log(this.campos)
       })
   }
 

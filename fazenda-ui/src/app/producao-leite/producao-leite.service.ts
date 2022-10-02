@@ -14,7 +14,6 @@ export class ProducaoLeiteService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.producaoLeiteUrl);
     return this.http.get(this.producaoLeiteUrl)
       .toPromise();
   }

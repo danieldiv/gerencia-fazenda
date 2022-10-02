@@ -33,7 +33,6 @@ export class ProducaoLeitePesquisaComponent implements OnInit {
     this.producaoLeiteService.listarTodos()
       .then((dados: any) => {
         this.producaoLeite = dados;
-        console.log(this.producaoLeite)
       })
   }
 

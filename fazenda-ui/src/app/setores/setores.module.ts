@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { DialogModule } from 'primeng/dialog';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToolbarModule } from 'primeng/toolbar';
 
 import { SharedModule } from './../shared/shared.module';
-import { SetoresRoutingModule } from './setores-routing.module';
 import { SetoresPesquisaComponent } from './setores-pesquisa/setores-pesquisa.component';
+import { SetoresRoutingModule } from './setores-routing.module';
 
 
 @NgModule({
@@ -17,11 +21,15 @@ import { SetoresPesquisaComponent } from './setores-pesquisa/setores-pesquisa.co
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
+    InputTextModule,
     ButtonModule,
     TableModule,
     PanelModule,
     CardModule,
+    DialogModule,
+    ToolbarModule,
 
     SharedModule,
     SetoresRoutingModule

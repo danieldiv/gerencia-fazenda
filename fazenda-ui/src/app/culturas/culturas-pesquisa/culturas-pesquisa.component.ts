@@ -32,7 +32,6 @@ export class CulturasPesquisaComponent implements OnInit {
     this.culturaService.listarTodos()
       .then((dados: any) => {
         this.culturas = dados;
-        console.log(this.culturas)
       })
   }
 

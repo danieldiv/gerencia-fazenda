@@ -14,7 +14,6 @@ export class FuncionarioService {
   }
 
   listarTodos(): Promise<any> {
-    console.log(this.funcionarioUrl);
     return this.http.get(this.funcionarioUrl)
       .toPromise();
   }
