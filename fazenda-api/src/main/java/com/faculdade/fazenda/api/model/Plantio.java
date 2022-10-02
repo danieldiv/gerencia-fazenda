@@ -3,6 +3,7 @@ package com.faculdade.fazenda.api.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -24,24 +25,27 @@ public class Plantio {
 	private Long codigo;
 
 	@NotNull
+	@Column(name = "qtd_colhido")
 	private int qtdColhido;
 
 	@NotNull
 	private boolean situacao;
 
 	@NotNull
+	@Column(name = "data_plantio")
 	private LocalDate dataPlantio;
 
+	@Column(name = "data_colheita")
 	private LocalDate dataColheita;
 
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "codido_cultura")
+	@JoinColumn(name = "codigo_cultura")
 	private Cultura cultura;
 
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "codigi_capo")
+	@JoinColumn(name = "codigo_campo")
 	private Campo campo;
 
 	@NotNull

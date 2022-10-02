@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #404C51;
+  background-color: #EFF3F8;
 }
 
 label {
@@ -13,4 +14,8 @@ label {
       width: 1170px;
       margin: 0 auto;
   }
+}
+
+.col-acoes-header {
+  width: 140px;
 }

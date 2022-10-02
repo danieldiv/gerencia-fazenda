@@ -12,17 +12,22 @@
               <tr>
                   <th>Codigo</th>
                   <th>Descricao</th>
+                  <th></th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-setor>
               <tr>
                   <td>{{setor.codigo}}</td>
                   <td>{{setor.descricao}}</td>
+                  <td class="col-acoes-header">
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                  </td>
               </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="2">
+              <td colspan="3">
                 Nenhum setor encontrado
               </td>
             </tr>
