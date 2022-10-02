@@ -11,11 +11,15 @@
           <ng-template pTemplate="header">
               <tr>
                   <th>Codigo</th>
+                  <th>Largura</th>
+                  <th>Comprimento</th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-campo>
               <tr>
                   <td>{{campo.codigo}}</td>
+                  <td>{{campo.largura}}</td>
+                  <td>{{campo.comprimento}}</td>
               </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">

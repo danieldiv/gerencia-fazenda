@@ -11,11 +11,17 @@
           <ng-template pTemplate="header">
               <tr>
                   <th>Codigo</th>
+                  <th>Capacidade</th>
+                  <th>Qtd Animais</th>
+                  <th>Animal</th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-granja>
               <tr>
                   <td>{{granja.codigo}}</td>
+                  <td>{{granja.capacidade}}</td>
+                  <td>{{granja.qtdAnimais}}</td>
+                  <td>{{granja.animal.descricao}}</td>
               </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
