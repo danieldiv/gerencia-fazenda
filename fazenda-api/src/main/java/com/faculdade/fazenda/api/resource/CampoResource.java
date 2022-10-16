@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,11 +40,13 @@ public class CampoResource {
 	private ApplicationEventPublisher publisher;
 
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CAMPO') and hasAuthority('SCOPE_read')" )
 	public List<Campo> listar() {
 		return this.campoRepository.findAll();
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CAMPO') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Campo> criar(@Valid @RequestBody Campo campo, HttpServletResponse response) {
 		Campo campoSalvo = this.campoRepository.save(campo);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, campoSalvo.getCodigo()));
@@ -51,12 +54,14 @@ public class CampoResource {
 	}
 
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CAMPO') and hasAuthority('SCOPE_read')" )
 	public ResponseEntity<Campo> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Campo> campo = this.campoRepository.findById(codigo);
 		return campo.isPresent() ? ResponseEntity.ok(campo.get()) : ResponseEntity.notFound().build();
 	}
 
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CAMPO') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Campo> atualizar(@PathVariable Long codigo, @Valid @RequestBody Campo campo) {
 		Campo campoSalvo = this.campoService.atualizar(codigo, campo);
 		return ResponseEntity.ok(campoSalvo);
@@ -64,6 +69,7 @@ public class CampoResource {
 
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CAMPO') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long codigo) {
 		this.campoRepository.deleteById(codigo);
 	}
