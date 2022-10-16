@@ -30,14 +30,6 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 28);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 29);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 30);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 31);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 32);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 33);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 34);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 35);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 36);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 37);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 38);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 39);
 
 -- daniel
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 12);
@@ -60,10 +52,6 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 28);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 29);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 30);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 31);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 32);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 33);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 34);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 35);
 
 -- lucas
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 14);
@@ -74,9 +62,6 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 26);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 27);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 29);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 30);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 32);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 33);
-INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (3, 35);
 
 -- usuario
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (4, 3);

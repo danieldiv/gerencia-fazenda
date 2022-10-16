@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,11 +40,13 @@ public class AnimalResource {
 	private AnimalService animalService;
 
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_ANIMAL') and hasAuthority('SCOPE_read')" )
 	public List<Animal> listar() {
 		return this.animalRepository.findAll();
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_ANIMAL') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Animal> criar(@Valid @RequestBody Animal animal, HttpServletResponse response) {
 		Animal animalSalvo = this.animalRepository.save(animal);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, animalSalvo.getCodigo()));
@@ -51,12 +54,14 @@ public class AnimalResource {
 	}
 
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_ANIMAL') and hasAuthority('SCOPE_read')" )
 	public ResponseEntity<Animal> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Animal> animal = this.animalRepository.findById(codigo);
 		return animal.isPresent() ? ResponseEntity.ok(animal.get()) : ResponseEntity.notFound().build();
 	}
 
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_ANIMAL') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Animal> atualizar(@PathVariable Long codigo, @Valid @RequestBody Animal animal) {
 		Animal animalSalvo = this.animalService.atualizar(codigo, animal);
 		return ResponseEntity.ok(animalSalvo);
@@ -64,6 +69,7 @@ public class AnimalResource {
 
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_ANIMAL') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long codigo) {
 		this.animalRepository.deleteById(codigo);
 	}

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,11 +40,13 @@ public class CulturaResource {
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CULTURA') and hasAuthority('SCOPE_read')" )
 	public List<Cultura> listar() {
 		return this.culturaRepository.findAll();
 	}
 	
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CULTURA') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Cultura> criar(@Valid @RequestBody Cultura cultura, HttpServletResponse response) {
 		Cultura culturaSalva = this.culturaRepository.save(cultura);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, culturaSalva.getCodigo()));
@@ -51,12 +54,14 @@ public class CulturaResource {
 	}
 
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_CULTURA') and hasAuthority('SCOPE_read')" )
 	public ResponseEntity<Cultura> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Cultura> cultura = this.culturaRepository.findById(codigo);
 		return cultura.isPresent() ? ResponseEntity.ok(cultura.get()) : ResponseEntity.notFound().build();
 	}
 
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CULTURA') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Cultura> atualizar(@PathVariable Long codigo, @Valid @RequestBody Cultura cultura) {
 		Cultura culturaSalva = this.culturaService.atualizar(codigo, cultura);
 		return ResponseEntity.ok(culturaSalva);
@@ -64,6 +69,7 @@ public class CulturaResource {
 
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_CULTURA') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long codigo) {
 		this.culturaRepository.deleteById(codigo);
 	}

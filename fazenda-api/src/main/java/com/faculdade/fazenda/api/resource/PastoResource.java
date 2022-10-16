@@ -13,6 +13,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,11 +51,13 @@ public class PastoResource {
 	private MessageSource messageSource;
 
 	@GetMapping
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PASTO') and hasAuthority('SCOPE_read')" )
 	public List<Pasto> listar() {
 		return this.pastoRepository.findAll();
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_PASTO') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Pasto> criar(@Valid @RequestBody Pasto pasto, HttpServletResponse response) {
 		Pasto pastoSalvo = this.pastoService.salvar(pasto);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, pastoSalvo.getCodigo()));
@@ -62,12 +65,14 @@ public class PastoResource {
 	}
 
 	@GetMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_PASTO') and hasAuthority('SCOPE_read')" )
 	public ResponseEntity<Pasto> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Pasto> pasto = this.pastoRepository.findById(codigo);
 		return pasto.isPresent() ? ResponseEntity.ok(pasto.get()) : ResponseEntity.notFound().build();
 	}
 
 	@PutMapping("/{codigo}")
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_PASTO') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Pasto> atualizar(@PathVariable Long codigo, @Valid @RequestBody Pasto pasto) {
 		Pasto pastoSalvo = this.pastoService.atualizar(codigo, pasto);
 		return ResponseEntity.ok(pastoSalvo);
@@ -75,6 +80,7 @@ public class PastoResource {
 
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_PASTO') and hasAuthority('SCOPE_write')" )
 	public void remover(@PathVariable Long codigo) {
 		this.pastoRepository.deleteById(codigo);
 	}
