@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: AnimaisPesquisaComponent,
     canActivate: [AuthGuard],
-    data: { roles: ['ROLE_PESQUISAR_LANCAMENTO'] }
+    data: { roles: ['ROLE_PESQUISAR_ANIMAL'] }
   }
 ];
 
