@@ -40,19 +40,6 @@ public class Pasto {
 	@JsonIgnoreProperties("pasto")
 	@OneToMany(mappedBy = "pasto", cascade = CascadeType.ALL)
 	private List<ProducaoLeite> prodLeites;
-	
-	
-
-//	tambe funciona
-//	@JsonIgnoreProperties("pasto")
-//	@OneToMany(mappedBy = "pasto", orphanRemoval = true)
-//	private List<ProducaoLeite> prodLeites;
-	
-	
-//	nao funciona
-//	@JsonIgnoreProperties("pasto")
-//	@OneToMany(mappedBy = "pasto", cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<ProducaoLeite> prodLeites;
 
 	public Long getCodigo() {
 		return codigo;

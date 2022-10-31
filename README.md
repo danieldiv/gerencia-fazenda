@@ -11,14 +11,14 @@
   Este projeto tem o objetivo de auxiliar na gestao de fazendas ...
 </p>
 
-## Fazer
+## Fazer (API)
 
 | Tabelas        | Leitura                            | Cadastro                           | Atualizacao                       | Remocao                           |
 | -------------- | ---------------------------------- | ---------------------------------- | --------------------------------- | --------------------------------- |
 | animal         | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
 | campo          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
 | cultura        | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| equipamento    | :green_circle: :heavy_check_mark:  | :green_circle: :x:                 | :green_circle: :x:                | :green_circle: :x:                |
+| equipamento    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
 | funcionario    | :red_circle: :heavy_check_mark:    | :red_circle: :x:                   | :green_circle: :x:                | :green_circle: :x:                |
 | granja         | :red_circle: :heavy_check_mark:    | :red_circle: :x:                   | :green_circle: :x:                | :green_circle: :x:                |
 | lancamento     | :green_circle: :x:                 | :green_circle: :x:                 | :green_circle: :x:                | :green_circle: :x:                |
@@ -27,6 +27,23 @@
 | plantio        | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:               | :yellow_circle: :x:               |
 | producao leite | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:               | :yellow_circle: :x:               |
 | setor          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
+
+## Fazer (ui - validar)
+
+| Tabelas        | Leitura             | Cadastro            | Atualizacao         | Remocao             |
+| -------------- | ------------------- | ------------------- | ------------------- | ------------------- |
+| animal         | :yellow_circle: :x: | :yellow_circle: :x: | :green_circle: :x:  | :green_circle: :x:  |
+| campo          | :red_circle: :x:    | :red_circle: :x:    | :green_circle: :x:  | :green_circle: :x:  |
+| cultura        | :red_circle: :x:    | :red_circle: :x:    | :green_circle: :x:  | :green_circle: :x:  |
+| equipamento    | :green_circle: :x:  | :green_circle: :x:  | :green_circle: :x:  | :green_circle: :x:  |
+| funcionario    | :red_circle: :x:    | :red_circle: :x:    | :green_circle: :x:  | :green_circle: :x:  |
+| granja         | :red_circle: :x:    | :red_circle: :x:    | :green_circle: :x:  | :green_circle: :x:  |
+| lancamento     | :green_circle: :x:  | :green_circle: :x:  | :green_circle: :x:  | :green_circle: :x:  |
+| ovos           | :yellow_circle: :x: | :yellow_circle: :x: | :yellow_circle: :x: | :yellow_circle: :x: |
+| pasto          | :red_circle: :x:    | :red_circle: :x:    | :green_circle: :x:  | :green_circle: :x:  |
+| plantio        | :yellow_circle: :x: | :yellow_circle: :x: | :yellow_circle: :x: | :yellow_circle: :x: |
+| producao leite | :yellow_circle: :x: | :yellow_circle: :x: | :yellow_circle: :x: | :yellow_circle: :x: |
+| setor          | :red_circle: :x:    | :red_circle: :x:    | :green_circle: :x:  | :green_circle: :x:  |
 
 ### Legenda (prioridade)
 
