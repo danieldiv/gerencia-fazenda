@@ -5,6 +5,7 @@
 ![ISOlinux](https://img.shields.io/badge/ISO-Ubuntu-blueviolet)
 ![ISOwin10](https://img.shields.io/badge/ISO-Win10-blue)
 ![VersionJava](https://img.shields.io/badge/Java-v17-red)
+![License](https://badgen.net/badge/license/MIT/green)
 ![Spring](https://img.shields.io/github/repo-size/danieldiv/gerencia-fazenda)
 
 <p>
@@ -13,20 +14,20 @@
 
 ## Fazer (API)
 
-| Tabelas        | Leitura                            | Cadastro                           | Atualizacao                       | Remocao                           |
-| -------------- | ---------------------------------- | ---------------------------------- | --------------------------------- | --------------------------------- |
-| animal         | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| campo          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| cultura        | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| equipamento    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| funcionario    | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :x:                | :green_circle: :heavy_check_mark: |
-| granja         | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| lancamento     | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |                                   | :green_circle: :heavy_check_mark: |
-| ovos           | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:               | :yellow_circle: :x:               |
-| pasto          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
-| plantio        | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:               | :yellow_circle: :x:               |
-| producao leite | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:               | :yellow_circle: :x:               |
-| setor          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
+| Tabelas        | Leitura                            | Cadastro                           | Atualizacao                        | Remocao                            |
+| -------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| animal         | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
+| campo          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
+| cultura        | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
+| equipamento    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
+| funcionario    | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :x:                 | :green_circle: :heavy_check_mark:  |
+| granja         | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
+| lancamento     | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |                                    | :green_circle: :heavy_check_mark:  |
+| ovos           | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: |
+| pasto          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
+| plantio        | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                |
+| producao leite | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                |
+| setor          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
 
 ## Fazer (ui - validar)
 
