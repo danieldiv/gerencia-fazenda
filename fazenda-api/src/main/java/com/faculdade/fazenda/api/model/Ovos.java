@@ -24,7 +24,6 @@ public class Ovos {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
-	@NotNull
 	private LocalDate data;
 
 	@NotNull
@@ -35,7 +34,6 @@ public class Ovos {
 	@JoinColumn(name = "codigo_granja")
 	private Granja granja;
 
-	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Unidade unidade;
 
