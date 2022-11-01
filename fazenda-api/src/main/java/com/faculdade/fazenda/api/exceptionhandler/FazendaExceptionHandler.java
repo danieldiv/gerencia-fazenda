@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.faculdade.fazenda.api.service.exception.AnimalNaoPermitidoException;
+import com.faculdade.fazenda.api.service.exception.CapacidadeSuperiorException;
+import com.faculdade.fazenda.api.service.exception.DataNaoPermitidaException;
+
 @ControllerAdvice
 public class FazendaExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -68,6 +72,38 @@ public class FazendaExceptionHandler extends ResponseEntityExceptionHandler {
 
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
+//	tratamentos especificos
+	
+	@ExceptionHandler({ CapacidadeSuperiorException.class })
+	public ResponseEntity<Object> handleCapacidadeSuperiorException(CapacidadeSuperiorException ex) {
+		String mensagemUsuario = this.messageSource.getMessage("quantidade.nao-permitida", null,
+				LocaleContextHolder.getLocale());
+		String mensagemDesenvolvedor = ex.toString();
+
+		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+		return ResponseEntity.badRequest().body(erros);
+	}
+
+	@ExceptionHandler({ AnimalNaoPermitidoException.class })
+	public ResponseEntity<Object> handleAnimalNaoPermitidoException(AnimalNaoPermitidoException ex) {
+		String mensagemUsuario = this.messageSource.getMessage("animal.nao-permitido", null,
+				LocaleContextHolder.getLocale());
+		String mensagemDesenvolvedor = ex.toString();
+
+		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+		return ResponseEntity.badRequest().body(erros);
+	}
+	
+	@ExceptionHandler({ DataNaoPermitidaException.class })
+	public ResponseEntity<Object> handleDataNaoPermitidaException(DataNaoPermitidaException ex) {
+		String mensagemUsuario = this.messageSource.getMessage("data.nao-permitida", null,
+				LocaleContextHolder.getLocale());
+		String mensagemDesenvolvedor = ex.toString();
+
+		List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+		return ResponseEntity.badRequest().body(erros);
 	}
 
 	private List<Erro> criarListaDeErros(BindingResult bindingResult) {

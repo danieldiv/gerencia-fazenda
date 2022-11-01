@@ -3,6 +3,7 @@ package com.faculdade.fazenda.api.model;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,10 +29,11 @@ public class Funcionario {
 	@NotNull
 	private String telefone;
 
-	@NotNull
+	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
 
 	@NotNull
+	@Column(name = "data_nascimento")
 	private LocalDate dataNascimento;
 
 	@NotNull

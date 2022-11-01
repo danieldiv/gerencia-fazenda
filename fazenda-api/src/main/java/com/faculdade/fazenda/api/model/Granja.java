@@ -36,7 +36,7 @@ public class Granja {
 	private Animal animal;
 
 	@JsonIgnoreProperties("granja")
-	@OneToMany(mappedBy = "granja", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "granja", cascade = CascadeType.ALL)
 	private List<Ovos> ovos;
 
 	public Long getCodigo() {
