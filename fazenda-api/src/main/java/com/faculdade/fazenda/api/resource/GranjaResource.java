@@ -52,21 +52,21 @@ public class GranjaResource {
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, granjaSalva.getCodigo()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(granjaSalva);
 	}
-//
+
 	@GetMapping("/{codigo}")
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_GRANJA') and hasAuthority('SCOPE_read')" )
 	public ResponseEntity<Granja> buscarPeloCodigo(@PathVariable Long codigo) {
 		Optional<Granja> granja = this.granjaRepository.findById(codigo);
 		return granja.isPresent() ? ResponseEntity.ok(granja.get()) : ResponseEntity.notFound().build();
 	}
-//
+
 	@PutMapping("/{codigo}")
 	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_GRANJA') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Granja> atualizar(@PathVariable Long codigo, @Valid @RequestBody Granja granja) {
 		Granja granjaSalva= this.granjaService.atualizar(codigo, granja);
 		return ResponseEntity.ok(granjaSalva);
 	}
-//
+
 	@DeleteMapping("/{codigo}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_GRANJA') and hasAuthority('SCOPE_write')" )

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.faculdade.fazenda.api.event.RecursoCriadoEvent;
 import com.faculdade.fazenda.api.model.Funcionario;
 import com.faculdade.fazenda.api.repository.FuncionarioRepository;
+import com.faculdade.fazenda.api.service.FuncionarioService;
 
 @RestController
 @RequestMapping("/funcionarios")
@@ -31,8 +32,12 @@ public class FuncionarioResource {
 	@Autowired
 	private FuncionarioRepository funcionarioRepository;
 	
+	@Autowired	
+	private FuncionarioService funcionarioService;
+	
 	@Autowired
 	private ApplicationEventPublisher publisher;
+	
 	
 	@GetMapping
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_FUNCIONARIO') and hasAuthority('SCOPE_read')" )
@@ -43,7 +48,7 @@ public class FuncionarioResource {
 	@PostMapping
 	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_FUNCIONARIO') and hasAuthority('SCOPE_write')" )
 	public ResponseEntity<Funcionario> criar(@Valid @RequestBody Funcionario funcionario, HttpServletResponse response) {
-		Funcionario funcionarioSalvo = this.funcionarioRepository.save(funcionario);
+		Funcionario funcionarioSalvo = this.funcionarioService.salvar(funcionario);
 		this.publisher.publishEvent(new RecursoCriadoEvent(this, response, funcionarioSalvo.getCodigo()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(funcionarioSalvo);
 	}

@@ -20,7 +20,7 @@
 | cultura        | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
 | equipamento    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
 | funcionario    | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :x:                | :green_circle: :heavy_check_mark: |
-| granja         | :red_circle: :heavy_check_mark:    | :red_circle: :x:                   | :green_circle: :x:                | :green_circle: :x:                |
+| granja         | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |
 | lancamento     | :green_circle: :x:                 | :green_circle: :x:                 |                                   | :green_circle: :x:                |
 | ovos           | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:               | :yellow_circle: :x:               |
 | pasto          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark: | :green_circle: :heavy_check_mark: |

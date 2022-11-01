@@ -29,7 +29,6 @@ public class Funcionario {
 	@NotNull
 	private String telefone;
 
-	@NotNull
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
 

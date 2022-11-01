@@ -28,6 +28,7 @@ public class GranjaService {
 	}
 
 	public Granja atualizar(Long codigo, Granja granja) {
+		validarGranja(granja);
 		Granja granjaSalva = buscarGranjaPeloCodigo(codigo);
 		BeanUtils.copyProperties(granja, granjaSalva, "codigo");
 		return this.granjaRepository.save(granjaSalva);
@@ -35,12 +36,13 @@ public class GranjaService {
 
 	private void validarGranja(Granja granja) {
 		if (granja.getQtdAnimais() > granja.getCapacidade()) {
+			System.out.println("teste");
 			throw new CapacidadeSuperiorException();
 		}
 
 		Animal animal = buscarAnimalExistente(granja.getAnimal().getCodigo());
-
-		if (!animal.getTipoAnimal().equals(TipoAnimal.GADO)) {
+		
+		if (!animal.getTipoAnimal().equals(TipoAnimal.GALINHA)) {
 			throw new AnimalNaoPermitidoException();
 		}
 	}
