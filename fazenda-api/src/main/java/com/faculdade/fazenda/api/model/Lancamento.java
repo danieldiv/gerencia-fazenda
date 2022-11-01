@@ -29,7 +29,6 @@ public class Lancamento {
 	@Size(min = 3, max = 50)
 	private String descricao;
 
-	@NotNull
 	private LocalDate data;
 
 	@NotNull
