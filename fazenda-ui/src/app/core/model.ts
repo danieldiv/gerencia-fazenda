@@ -36,7 +36,7 @@ export class Lancamento {
 // OPERACIONAL
 
 export class Campo {
-  identificado?: number;
+  codigo?: number;
   largura?: number;
   comprimento?: number;
 }
@@ -72,7 +72,7 @@ export class Pasto {
   codigo?: number;
   capacidade?: number;
   qtd_animais?: number;
-  animal = new Animal();
+  animal?= new Animal();
 }
 
 export class ProducaoLeite {

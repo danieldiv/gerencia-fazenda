@@ -1,3 +1,4 @@
+import { Equipamento } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { EquipamentoService } from './../equipamento.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -13,6 +14,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class EquipamentosPesquisaComponent implements OnInit {
 
   equipamentos: any[] = [];
+  equipamento: Equipamento;
   @ViewChild('tabelaEquipamentos') grid: any;
 
   constructor(
@@ -21,7 +23,9 @@ export class EquipamentosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) { }
+  ) {
+    this.equipamento = new Equipamento();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de equipamentos');
@@ -34,5 +38,18 @@ export class EquipamentosPesquisaComponent implements OnInit {
         this.equipamentos = dados;
       })
   }
+
+  showDialog: boolean = false;
+
+  hideDialog() {
+    this.showDialog = false;
+  }
+
+  openNew() {
+    this.equipamento = {};
+    this.showDialog = true;
+  }
+
+
 
 }

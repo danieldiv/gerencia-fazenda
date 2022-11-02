@@ -1,3 +1,6 @@
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,11 +21,14 @@ import { CamposPesquisaComponent } from './campos-pesquisa/campos-pesquisa.compo
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    // ButtonModule,
+    // TableModule,
+    // PanelModule,
+    // CardModule,
+    // InputTextModule,
+    // InputNumberModule,
 
     SharedModule,
     CamposRoutingModule

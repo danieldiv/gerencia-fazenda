@@ -1,3 +1,4 @@
+import { Cultura } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { CulturaService } from './../cultura.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,10 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class CulturasPesquisaComponent implements OnInit {
 
-  culturas: any[] = [];
   @ViewChild('tabelaCulturas') grid: any;
+
+  culturas: any[] = [];
+  cultura: Cultura;
 
   constructor(
     private culturaService: CulturaService,
@@ -21,7 +24,9 @@ export class CulturasPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) { }
+  ) {
+    this.cultura = new Cultura();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de culturas');
@@ -34,5 +39,18 @@ export class CulturasPesquisaComponent implements OnInit {
         this.culturas = dados;
       })
   }
+
+  showDialog: boolean = false;
+
+  hideDialog() {
+    this.showDialog = false;
+  }
+
+  openNew() {
+    this.cultura = {};
+    this.showDialog = true;
+  }
+
+
 
 }

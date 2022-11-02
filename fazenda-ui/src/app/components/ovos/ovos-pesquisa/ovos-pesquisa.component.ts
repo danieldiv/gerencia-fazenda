@@ -1,3 +1,4 @@
+import { Ovos } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { OvosService } from './../ovos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,13 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class OvosPesquisaComponent implements OnInit {
 
-  ovos: any[] = [];
   @ViewChild('tabelaOvos') grid: any;
+
+  ovos: any[] = [];
+  newOvos?: Ovos;
+
+  showDialog: boolean = false;
+
 
   constructor(
     private ovosService: OvosService,
@@ -21,7 +27,9 @@ export class OvosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) { }
+  ) {
+    // this.newOvos = new Ovos();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de ovos');
@@ -33,6 +41,25 @@ export class OvosPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.ovos = dados;
       })
+  }
+
+
+  hideDialog() {
+    this.showDialog = false;
+  }
+
+  openNew() {
+    // this.ovos = {};
+    this.newOvos = new Ovos();
+    this.showDialog = true;
+  }
+
+  save() {
+    // if (this.editando) {
+    //   this.updateSetor();
+    // } else {
+    //   this.saveSetor();
+    // }
   }
 
 }

@@ -1,3 +1,4 @@
+import { Plantio } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { PlantioService } from './../plantio.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,12 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class PlantiosPesquisaComponent implements OnInit {
 
-  plantios: any[] = [];
   @ViewChild('tabelaPlantios') grid: any;
+
+  plantios: any[] = [];
+  plantio?: Plantio;
+
+  showDialog: boolean = false;
 
   constructor(
     private plantioService: PlantioService,
@@ -21,7 +26,9 @@ export class PlantiosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) { }
+  ) {
+    // this.plantio = new Plantio();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de plantios');
@@ -33,5 +40,24 @@ export class PlantiosPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.plantios = dados;
       })
+  }
+
+
+  hideDialog() {
+    this.showDialog = false;
+  }
+
+  openNew() {
+    // this.plantio = {};
+    this.plantio = new Plantio();
+    this.showDialog = true;
+  }
+
+  save() {
+    // if (this.editando) {
+    //   this.updateSetor();
+    // } else {
+    //   this.saveSetor();
+    // }
   }
 }

@@ -1,3 +1,4 @@
+import { Animal } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -11,8 +12,13 @@ import { AnimalService } from './../animal.service';
 })
 export class AnimaisPesquisaComponent implements OnInit {
 
-  animais: any[] = [];
   @ViewChild('tabelaAnimais') grid: any;
+
+  animais: any[] = [];
+  animal: Animal;
+
+  showDialog: boolean = false;
+
 
   constructor(
     private animalService: AnimalService,
@@ -20,7 +26,9 @@ export class AnimaisPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) { }
+  ) {
+    this.animal = new Animal();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de animais');
@@ -33,5 +41,17 @@ export class AnimaisPesquisaComponent implements OnInit {
         this.animais = dados;
       })
   }
+
+
+  hideDialog() {
+    this.showDialog = false;
+  }
+
+  openNew() {
+    this.animal = {};
+    this.showDialog = true;
+  }
+
+
 
 }

@@ -13,6 +13,7 @@
                   <th>Codigo</th>
                   <th>Largura</th>
                   <th>Comprimento</th>
+                  <th></th>
               </tr>
           </ng-template>
           <ng-template pTemplate="body" let-campo>
@@ -20,6 +21,10 @@
                   <td>{{campo.codigo}}</td>
                   <td>{{campo.largura}}</td>
                   <td>{{campo.comprimento}}</td>
+                  <td class="col-acoes-header">
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editarCampo(campo)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="confirmarExclusao(campo)"></button>
+                  </td>
               </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
@@ -34,6 +39,22 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
 
 </div>
+
+<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do campo" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+  <div class="field">
+    <label for="largura">Largura</label>
+    <p-inputNumber [(ngModel)]="campo.largura" inputId="largura"></p-inputNumber>
+
+    <label for="comprimento">Comprimento</label>
+    <p-inputNumber [(ngModel)]="campo.comprimento" inputId="comprimento"></p-inputNumber>
+  </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
+    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button>
+  </ng-template>
+</p-dialog>

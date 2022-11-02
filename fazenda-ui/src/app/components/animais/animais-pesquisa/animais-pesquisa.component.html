@@ -34,6 +34,19 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
 
 </div>
+
+<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+  <div class="field">
+    <label for="descricao">Descricao</label>
+    <!-- <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus> -->
+  </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <!-- <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
+    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button> -->
+  </ng-template>
+</p-dialog>

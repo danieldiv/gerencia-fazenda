@@ -1,3 +1,4 @@
+import { Campo } from './../../core/model';
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -15,6 +16,19 @@ export class CampoService {
 
   listarTodos(): Promise<any> {
     return this.http.get(this.campoUrl)
+      .toPromise();
+  }
+
+  adicionar(setor: Campo): Promise<any> {
+    return this.http.post<any>(this.campoUrl, setor).toPromise();
+  }
+
+  atualizar(setor: Campo): Promise<any> {
+    return this.http.put<any>(`${this.campoUrl}/${setor.codigo}`, setor).toPromise();
+  }
+
+  excluir(codigo: number): Promise<void> {
+    return this.http.delete<void>(`${this.campoUrl}/${codigo}`)
       .toPromise();
   }
 }

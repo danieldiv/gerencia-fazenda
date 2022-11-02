@@ -1,3 +1,4 @@
+import { Funcionario } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { FuncionarioService } from './../funcionario.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -13,6 +14,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class FuncionariosPesquisaComponent implements OnInit {
 
   funcionarios: any[] = [];
+  funcionario?: Funcionario;
   @ViewChild('tabelaFuncionarios') grid: any;
 
   constructor(
@@ -21,7 +23,9 @@ export class FuncionariosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) { }
+  ) {
+    // this.funcionario = new Funcionario();
+  }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de funcionarios');
@@ -34,5 +38,19 @@ export class FuncionariosPesquisaComponent implements OnInit {
         this.funcionarios = dados;
       })
   }
+
+  showDialog: boolean = false;
+
+  hideDialog() {
+    this.showDialog = false;
+  }
+
+  openNew() {
+    // this.funcionario = {};
+    this.funcionario = new Funcionario();
+    this.showDialog = true;
+  }
+
+
 
 }
