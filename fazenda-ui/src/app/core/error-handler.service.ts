@@ -1,7 +1,7 @@
-import { NotAuthenticadedError } from './../seguranca/fazenda-http-interceptor';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Injectable } from '@angular/core';
+import { NotAuthenticadedError } from '../guard/fazenda-http-interceptor';
 
 @Injectable({
   providedIn: 'root'
