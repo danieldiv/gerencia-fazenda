@@ -24,18 +24,16 @@ public class ProducaoLeite {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
-	@NotNull
-	private int quantidade;
+	private LocalDate data;
 
 	@NotNull
-	private LocalDate data;
+	private int quantidade;
 
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "codigo_pasto")
 	private Pasto pasto;
 
-	@NotNull
 	@Enumerated(EnumType.STRING)
 	private Unidade unidade;
 
@@ -47,20 +45,20 @@ public class ProducaoLeite {
 		this.codigo = codigo;
 	}
 
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
 	public LocalDate getData() {
 		return data;
 	}
 
 	public void setData(LocalDate data) {
 		this.data = data;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	public Pasto getPasto() {
