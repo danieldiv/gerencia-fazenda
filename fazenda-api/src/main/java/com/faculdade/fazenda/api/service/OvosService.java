@@ -24,7 +24,7 @@ public class OvosService {
 		return this.ovosRepository.save(ovos);
 	}
 
-	public void atualizarPropridadeQauntidade(Long codigo, int quantidade) {
+	public void atualizarPropridadeQuantidade(Long codigo, int quantidade) {
 		Ovos ovosSalvo = buscarOvosPeloCodigo(codigo);
 		validarQuantidade(quantidade);
 		ovosSalvo.setQuantidade(ovosSalvo.getQuantidade() + quantidade);

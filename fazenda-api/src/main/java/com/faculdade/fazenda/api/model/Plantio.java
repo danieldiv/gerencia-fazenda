@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -48,8 +49,7 @@ public class Plantio {
 	@JoinColumn(name = "codigo_campo")
 	private Campo campo;
 
-	@NotNull
-	@Enumerated
+	@Enumerated(EnumType.STRING)
 	private Unidade unidade;
 
 	public Long getCodigo() {

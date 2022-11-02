@@ -64,7 +64,7 @@ public class OvosResource {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@PreAuthorize("hasAuthority('ROLE_CADASTRAR_OVOS') and hasAuthority('SCOPE_write')")
 	public void atualizar(@PathVariable Long codigo, @RequestBody int quantidade) {
-		this.ovosService.atualizarPropridadeQauntidade(codigo, quantidade);
+		this.ovosService.atualizarPropridadeQuantidade(codigo, quantidade);
 	}
 	
 	@DeleteMapping("/{codigo}")

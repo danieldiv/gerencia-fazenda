@@ -25,7 +25,7 @@
 | lancamento     | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |                                    | :green_circle: :heavy_check_mark:  |
 | ovos           | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: |
 | pasto          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
-| plantio        | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                |
+| plantio        | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: | :yellow_circle: :heavy_check_mark: |
 | producao leite | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                | :yellow_circle: :x:                |
 | setor          | :red_circle: :heavy_check_mark:    | :red_circle: :heavy_check_mark:    | :green_circle: :heavy_check_mark:  | :green_circle: :heavy_check_mark:  |
 
