@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { SegurancaModule } from './seguranca/seguranca.module';
+import { SegurancaModule } from './guard/seguranca.module';
 
 @NgModule({
   declarations: [

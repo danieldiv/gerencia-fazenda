@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="col-12">
+    <h1>Lancamentos</h1>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-card>
+        <p-table [value]="lancamentos" responsiveLayout="scroll" [responsive]="true" #tabelaLancamento>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+                  <th>Data</th>
+                  <th>Descricao</th>
+                  <th>Tipo</th>
+                  <th>Categoria</th>
+                  <th>Valor</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-lancamento>
+              <tr>
+                  <td>{{lancamento.codigo}}</td>
+                  <td>{{lancamento.data}}</td>
+                  <td>{{lancamento.descricao}}</td>
+                  <td>{{lancamento.tipoLancamento}}</td>
+                  <td>{{lancamento.categoriaLancamento}}</td>
+                  <td>{{lancamento.valor}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">
+                Nenhum lancamento encontrado
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+</div>

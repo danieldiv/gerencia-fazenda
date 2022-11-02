@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="col-12">
+    <h1>Plantios</h1>
+  </div>
+
+  <div class="grid">
+    <div class="col-12">
+      <p-card>
+        <p-table [value]="plantios" responsiveLayout="scroll" [responsive]="true" #tabelaPlantio>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th>Codigo</th>
+                  <th>Campo</th>
+                  <th>Cultura</th>
+                  <th>Data Plantio</th>
+                  <th>Data Colheita</th>
+                  <th>Qtd Colhido</th>
+                  <th>Situacao</th>
+                  <th>Unidade</th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-plantio>
+              <tr>
+                  <td>{{plantio.codigo}}</td>
+                  <td>{{plantio.campo.codigo}}</td>
+                  <td>{{plantio.cultura.descricao}}</td>
+                  <td>{{plantio.dataPlantio}}</td>
+                  <td>{{plantio.dataColheita}}</td>
+                  <td>{{plantio.qtdColhido}}</td>
+                  <td>{{plantio.situacao}}</td>
+                  <td>{{plantio.unidade}}</td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="1">
+                Nenhum plantio encontrado
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-card>
+    </div>
+  </div>
+
+</div>
