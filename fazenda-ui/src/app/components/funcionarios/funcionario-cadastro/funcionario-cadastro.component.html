@@ -1,0 +1,43 @@
+<div class="container">
+
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Novo'}} Funcionario</h1>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Nome</label>
+        <input pInputText type="text" name="nome" formControlName="nome">
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid" formGroupName="setor">
+        <label>Setor</label>
+        <p-dropdown [options]="setores" placeholder="Selecione" name="setor" formControlName="codigo">
+        </p-dropdown>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Telefone</label>
+        <input pInputText type="text" name="telefone" formControlName="telefone">
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>CPF</label>
+        <input pInputText type="text" name="cpf" formControlName="cpf">
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Data Nascimento</label>
+        <p-calendar name="dataNascimento" formControlName="dataNascimento"></p-calendar>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <a routerLink="/funcionarios">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>

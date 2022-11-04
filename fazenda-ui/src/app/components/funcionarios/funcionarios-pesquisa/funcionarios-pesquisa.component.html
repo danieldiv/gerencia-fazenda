@@ -1,10 +1,11 @@
 <div class="container">
 
-  <div>
-    <h1>Funcionarios</h1>
-  </div>
-
   <div class="grid">
+
+    <div class="col-12">
+      <h1>Funcionarios</h1>
+    </div>
+
     <div class="col-12">
       <p-card>
         <p-table [value]="funcionarios" responsiveLayout="scroll" [responsive]="true" #tabelaFuncionario>
@@ -17,6 +18,7 @@
               <th>Data Cadastro</th>
               <th>Data Nascimento</th>
               <th>Setor</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-funcionario>
@@ -28,11 +30,18 @@
               <td>{{funcionario.dataCadastro}}</td>
               <td>{{funcionario.dataNascimento}}</td>
               <td>{{funcionario.setor.descricao}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" [disabled]="true"
+                  class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/funcionarios', funcionario.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(funcionario)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="7">
+              <td colspan="8">
                 Nenhum funcionario encontrado
               </td>
             </tr>
@@ -42,6 +51,7 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/funcionarios/novo"></button>
 
 </div>
