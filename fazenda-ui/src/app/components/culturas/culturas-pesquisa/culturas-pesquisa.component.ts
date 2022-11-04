@@ -49,7 +49,7 @@ export class CulturasPesquisaComponent implements OnInit {
   excluir(setor: any) {
     this.culturaService.excluir(setor.codigo)
       .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Setor excluído com sucesso!' })
+        this.messageService.add({ severity: 'success', detail: 'Cultura excluído com sucesso!' })
         this.pesquisar();
       })
       .catch(erro => this.errorHandler.handle(erro));

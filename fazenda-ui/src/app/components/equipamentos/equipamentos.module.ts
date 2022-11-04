@@ -1,28 +1,25 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { EquipamentosRoutingModule } from './equipamentos-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
+import { EquipamentoCadastroComponent } from './equipamento-cadastro/equipamento-cadastro.component';
 import { EquipamentosPesquisaComponent } from './equipamentos-pesquisa/equipamentos-pesquisa.component';
-
+import { EquipamentosRoutingModule } from './equipamentos-routing.module';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
-    EquipamentosPesquisaComponent
+    EquipamentosPesquisaComponent,
+    EquipamentoCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    CalendarModule,
 
     SharedModule,
     EquipamentosRoutingModule

@@ -21,7 +21,7 @@ export class Funcionario extends Pessoa {
 export class Equipamento {
   codigo?: number;
   nome?: string;
-  dataCompra?: Date;
+  data?: Date;
 }
 
 // FINANCEIRO

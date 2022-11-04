@@ -1,3 +1,4 @@
+import { EquipamentoCadastroComponent } from './equipamento-cadastro/equipamento-cadastro.component';
 import { AuthGuard } from './../../guard/auth.guard';
 import { EquipamentosPesquisaComponent } from './equipamentos-pesquisa/equipamentos-pesquisa.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,18 @@ const routes: Routes = [
     component: EquipamentosPesquisaComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_PESQUISAR_EQUIPAMENTO'] }
+  },
+  {
+    path: 'novo',
+    component: EquipamentoCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_EQUIPAMENTO'] }
+  },
+  {
+    path: ':codigo',
+    component: EquipamentoCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_EQUIPAMENTO'] }
   }
 ];
 
