@@ -16,9 +16,6 @@ export class PlantiosPesquisaComponent implements OnInit {
   @ViewChild('tabelaPlantios') grid: any;
 
   plantios: any[] = [];
-  plantio?: Plantio;
-
-  showDialog: boolean = false;
 
   constructor(
     private plantioService: PlantioService,
@@ -26,9 +23,7 @@ export class PlantiosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    // this.plantio = new Plantio();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de plantios');
@@ -42,22 +37,4 @@ export class PlantiosPesquisaComponent implements OnInit {
       })
   }
 
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    // this.plantio = {};
-    this.plantio = new Plantio();
-    this.showDialog = true;
-  }
-
-  save() {
-    // if (this.editando) {
-    //   this.updateSetor();
-    // } else {
-    //   this.saveSetor();
-    // }
-  }
 }

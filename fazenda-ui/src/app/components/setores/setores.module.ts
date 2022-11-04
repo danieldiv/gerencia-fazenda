@@ -5,7 +5,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-// import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
@@ -35,7 +34,6 @@ import { SetorCadastroComponent } from './setor-cadastro/setor-cadastro.componen
     // TableModule,
     // PanelModule,
     // CardModule,
-    // DialogModule,
 
     SharedModule,
     SetoresRoutingModule

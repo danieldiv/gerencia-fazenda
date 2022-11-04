@@ -1,28 +1,28 @@
-import { SharedModule } from './../../shared/shared.module';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
 
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 import { AnimaisPesquisaComponent } from './animais-pesquisa/animais-pesquisa.component';
 import { AnimaisRoutingModule } from './animais-routing.module';
+import { AnimalCadastroComponent } from './animal-cadastro/animal-cadastro.component';
 
 
 @NgModule({
   declarations: [
-    AnimaisPesquisaComponent
+    AnimaisPesquisaComponent,
+    AnimalCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    SelectButtonModule,
 
     SharedModule,
     AnimaisRoutingModule

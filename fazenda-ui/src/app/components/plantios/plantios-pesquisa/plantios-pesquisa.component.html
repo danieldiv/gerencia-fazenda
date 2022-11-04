@@ -9,28 +9,28 @@
       <p-card>
         <p-table [value]="plantios" responsiveLayout="scroll" [responsive]="true" #tabelaPlantio>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Campo</th>
-                  <th>Cultura</th>
-                  <th>Data Plantio</th>
-                  <th>Data Colheita</th>
-                  <th>Qtd Colhido</th>
-                  <th>Situacao</th>
-                  <th>Unidade</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Campo</th>
+              <th>Cultura</th>
+              <th>Data Plantio</th>
+              <th>Data Colheita</th>
+              <th>Qtd Colhido</th>
+              <th>Situacao</th>
+              <th>Unidade</th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-plantio>
-              <tr>
-                  <td>{{plantio.codigo}}</td>
-                  <td>{{plantio.campo.codigo}}</td>
-                  <td>{{plantio.cultura.descricao}}</td>
-                  <td>{{plantio.dataPlantio}}</td>
-                  <td>{{plantio.dataColheita}}</td>
-                  <td>{{plantio.qtdColhido}}</td>
-                  <td>{{plantio.situacao}}</td>
-                  <td>{{plantio.unidade}}</td>
-              </tr>
+            <tr>
+              <td>{{plantio.codigo}}</td>
+              <td>{{plantio.campo.codigo}}</td>
+              <td>{{plantio.cultura.descricao}}</td>
+              <td>{{plantio.dataPlantio}}</td>
+              <td>{{plantio.dataColheita}}</td>
+              <td>{{plantio.qtdColhido}}</td>
+              <td>{{plantio.situacao}}</td>
+              <td>{{plantio.unidade}}</td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
@@ -44,19 +44,6 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
 
 </div>
-
-<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
-  <ng-template pTemplate="content">
-  <div class="field">
-    <label for="descricao">Descricao</label>
-    <!-- <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus> -->
-  </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <!-- <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
-    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button> -->
-  </ng-template>
-</p-dialog>

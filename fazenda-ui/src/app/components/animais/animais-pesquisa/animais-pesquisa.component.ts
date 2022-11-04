@@ -15,10 +15,6 @@ export class AnimaisPesquisaComponent implements OnInit {
   @ViewChild('tabelaAnimais') grid: any;
 
   animais: any[] = [];
-  animal: Animal;
-
-  showDialog: boolean = false;
-
 
   constructor(
     private animalService: AnimalService,
@@ -26,9 +22,7 @@ export class AnimaisPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    this.animal = new Animal();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de animais');
@@ -42,16 +36,22 @@ export class AnimaisPesquisaComponent implements OnInit {
       })
   }
 
-
-  hideDialog() {
-    this.showDialog = false;
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
   }
 
-  openNew() {
-    this.animal = {};
-    this.showDialog = true;
+  excluir(setor: any) {
+    this.animalService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Animal excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
-
-
 
 }

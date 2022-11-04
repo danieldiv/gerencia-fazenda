@@ -13,9 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class FuncionariosPesquisaComponent implements OnInit {
 
-  funcionarios: any[] = [];
-  funcionario?: Funcionario;
   @ViewChild('tabelaFuncionarios') grid: any;
+
+  funcionarios: any[] = [];
 
   constructor(
     private funcionarioService: FuncionarioService,
@@ -23,9 +23,7 @@ export class FuncionariosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    // this.funcionario = new Funcionario();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de funcionarios');
@@ -38,19 +36,5 @@ export class FuncionariosPesquisaComponent implements OnInit {
         this.funcionarios = dados;
       })
   }
-
-  showDialog: boolean = false;
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    // this.funcionario = {};
-    this.funcionario = new Funcionario();
-    this.showDialog = true;
-  }
-
-
 
 }

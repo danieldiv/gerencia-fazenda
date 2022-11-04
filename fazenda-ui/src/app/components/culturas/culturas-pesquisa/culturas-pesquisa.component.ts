@@ -16,7 +16,6 @@ export class CulturasPesquisaComponent implements OnInit {
   @ViewChild('tabelaCulturas') grid: any;
 
   culturas: any[] = [];
-  cultura: Cultura;
 
   constructor(
     private culturaService: CulturaService,
@@ -24,9 +23,7 @@ export class CulturasPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    this.cultura = new Cultura();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de culturas');
@@ -38,16 +35,5 @@ export class CulturasPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.culturas = dados;
       })
-  }
-
-  showDialog: boolean = false;
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    this.cultura = {};
-    this.showDialog = true;
   }
 }

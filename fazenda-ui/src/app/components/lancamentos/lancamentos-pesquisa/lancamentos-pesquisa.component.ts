@@ -13,9 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class LancamentosPesquisaComponent implements OnInit {
 
-  lancamentos: any[] = [];
-  lancamento: Lancamento;
   @ViewChild('tabelaLancamentos') grid: any;
+
+  lancamentos: any[] = [];
 
   constructor(
     private lancamentoService: LancamentoService,
@@ -23,9 +23,7 @@ export class LancamentosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    this.lancamento = new Lancamento();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de lancamentos');
@@ -38,18 +36,5 @@ export class LancamentosPesquisaComponent implements OnInit {
         this.lancamentos = dados;
       })
   }
-
-  showDialog: boolean = false;
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    this.lancamento = {};
-    this.showDialog = true;
-  }
-
-
 
 }

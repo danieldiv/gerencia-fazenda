@@ -13,9 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class EquipamentosPesquisaComponent implements OnInit {
 
-  equipamentos: any[] = [];
-  equipamento: Equipamento;
   @ViewChild('tabelaEquipamentos') grid: any;
+
+  equipamentos: any[] = [];
 
   constructor(
     private equipamentoService: EquipamentoService,
@@ -23,9 +23,7 @@ export class EquipamentosPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    this.equipamento = new Equipamento();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de equipamentos');
@@ -38,18 +36,5 @@ export class EquipamentosPesquisaComponent implements OnInit {
         this.equipamentos = dados;
       })
   }
-
-  showDialog: boolean = false;
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    this.equipamento = {};
-    this.showDialog = true;
-  }
-
-
 
 }

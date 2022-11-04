@@ -9,20 +9,20 @@
       <p-card>
         <p-table [value]="pastos" responsiveLayout="scroll" [responsive]="true" #tabelaPasto>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Animal</th>
-                  <th>Capacidade</th>
-                  <th>Qtd Animais</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Animal</th>
+              <th>Capacidade</th>
+              <th>Qtd Animais</th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-pasto>
-              <tr>
-                  <td>{{pasto.codigo}}</td>
-                  <td>{{pasto.animal.descricao}}</td>
-                  <td>{{pasto.capacidade}}</td>
-                  <td>{{pasto.qtdAnimal}}</td>
-              </tr>
+            <tr>
+              <td>{{pasto.codigo}}</td>
+              <td>{{pasto.animal.descricao}}</td>
+              <td>{{pasto.capacidade}}</td>
+              <td>{{pasto.qtdAnimal}}</td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
@@ -36,19 +36,6 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
 
 </div>
-
-<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
-  <ng-template pTemplate="content">
-  <div class="field">
-    <label for="descricao">Descricao</label>
-    <!-- <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus> -->
-  </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <!-- <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
-    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button> -->
-  </ng-template>
-</p-dialog>

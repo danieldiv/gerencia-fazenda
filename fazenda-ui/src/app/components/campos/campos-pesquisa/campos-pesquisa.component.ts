@@ -16,13 +16,6 @@ export class CamposPesquisaComponent implements OnInit {
   @ViewChild('tabelaCampos') grid: any;
 
   campos: any[] = [];
-  campo: Campo;
-
-  showDialog: boolean = false;
-
-  get editando() {
-    return Boolean(this.campo.codigo != null);
-  }
 
   constructor(
     private campoService: CampoService,
@@ -30,9 +23,7 @@ export class CamposPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    this.campo = new Campo();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de campos');
@@ -59,52 +50,6 @@ export class CamposPesquisaComponent implements OnInit {
     this.campoService.excluir(setor.codigo)
       .then(() => {
         this.messageService.add({ severity: 'success', detail: 'Campo excluído com sucesso!' })
-        this.pesquisar();
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-  editarCampo(setor: Campo) {
-    this.campo = { ...setor };
-    this.showDialog = true;
-  }
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  val?: number;
-
-  openNew() {
-    this.campo = new Campo();
-    this.showDialog = true;
-  }
-
-  save() {
-    if (this.editando) {
-      this.updateCampo();
-    } else {
-      this.saveCampo();
-    }
-  }
-
-  updateCampo() {
-    this.showDialog = false;
-
-    this.campoService.atualizar(this.campo)
-      .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Campo atualizado com sucesso!' })
-        this.pesquisar();
-      })
-      .catch(erro => this.errorHandler.handle(erro));
-  }
-
-  saveCampo() {
-    this.showDialog = false;
-
-    this.campoService.adicionar(this.campo)
-      .then(() => {
-        this.messageService.add({ severity: 'success', detail: 'Campo adicionado com sucesso!' })
         this.pesquisar();
       })
       .catch(erro => this.errorHandler.handle(erro));

@@ -59,6 +59,7 @@ export class Plantio {
 export class Animal {
   codigo?: number;
   descricao?: string;
+  tipoAnimal?: string;
 }
 
 export class Granja {

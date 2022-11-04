@@ -9,24 +9,24 @@
       <p-card>
         <p-table [value]="lancamentos" responsiveLayout="scroll" [responsive]="true" #tabelaLancamento>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Data</th>
-                  <th>Descricao</th>
-                  <th>Tipo</th>
-                  <th>Categoria</th>
-                  <th>Valor</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Data</th>
+              <th>Descricao</th>
+              <th>Tipo</th>
+              <th>Categoria</th>
+              <th>Valor</th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-lancamento>
-              <tr>
-                  <td>{{lancamento.codigo}}</td>
-                  <td>{{lancamento.data}}</td>
-                  <td>{{lancamento.descricao}}</td>
-                  <td>{{lancamento.tipoLancamento}}</td>
-                  <td>{{lancamento.categoriaLancamento}}</td>
-                  <td>{{lancamento.valor}}</td>
-              </tr>
+            <tr>
+              <td>{{lancamento.codigo}}</td>
+              <td>{{lancamento.data}}</td>
+              <td>{{lancamento.descricao}}</td>
+              <td>{{lancamento.tipoLancamento}}</td>
+              <td>{{lancamento.categoriaLancamento}}</td>
+              <td>{{lancamento.valor}}</td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
@@ -40,19 +40,6 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
 
 </div>
-
-<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
-  <ng-template pTemplate="content">
-  <div class="field">
-    <label for="descricao">Descricao</label>
-    <!-- <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus> -->
-  </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <!-- <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
-    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button> -->
-  </ng-template>
-</p-dialog>

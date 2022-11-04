@@ -17,13 +17,6 @@ export class SetoresPesquisaComponent implements OnInit {
   @ViewChild('tabelaSetores') grid: any;
 
   setores: any[] = [];
-  // setor: Setor;
-
-  // setorDialog: boolean = false;
-
-  // get editando() {
-  //   return Boolean(this.setor.codigo != null);
-  // }
 
   constructor(
     private setorService: SetorService,
@@ -31,9 +24,7 @@ export class SetoresPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    // this.setor = new Setor();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de setores');

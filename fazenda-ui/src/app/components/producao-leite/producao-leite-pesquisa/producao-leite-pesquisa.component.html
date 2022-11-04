@@ -9,22 +9,22 @@
       <p-card>
         <p-table [value]="producaoLeite" responsiveLayout="scroll" [responsive]="true" #tabelaProducaoLeite>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Data</th>
-                  <th>Pasto</th>
-                  <th>Quantidade</th>
-                  <th>Unidade</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Data</th>
+              <th>Pasto</th>
+              <th>Quantidade</th>
+              <th>Unidade</th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-prodLeite>
-              <tr>
-                  <td>{{prodLeite.codigo}}</td>
-                  <td>{{prodLeite.data}}</td>
-                  <td>{{prodLeite.pasto.codigo}}</td>
-                  <td>{{prodLeite.quantidade}}</td>
-                  <td>{{prodLeite.unidade}}</td>
-              </tr>
+            <tr>
+              <td>{{prodLeite.codigo}}</td>
+              <td>{{prodLeite.data}}</td>
+              <td>{{prodLeite.pasto.codigo}}</td>
+              <td>{{prodLeite.quantidade}}</td>
+              <td>{{prodLeite.unidade}}</td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
@@ -38,19 +38,6 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
 
 </div>
-
-<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
-  <ng-template pTemplate="content">
-  <div class="field">
-    <label for="descricao">Descricao</label>
-    <!-- <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus> -->
-  </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
-    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button>
-  </ng-template>
-</p-dialog>

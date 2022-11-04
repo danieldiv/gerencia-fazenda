@@ -1,11 +1,11 @@
-import { ErrorHandlerService } from './../../../core/error-handler.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { Setor } from './../../../core/model';
 import { SetorService } from './../setor.service';
-import { Title } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-setor-cadastro',

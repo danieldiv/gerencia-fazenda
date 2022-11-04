@@ -17,9 +17,6 @@ export class ProducaoLeitePesquisaComponent implements OnInit {
   @ViewChild('tabelaProducaoLeite') grid: any;
 
   producaoLeite: any[] = [];
-  prodLeite: ProducaoLeite;
-
-  showDialog: boolean = false;
 
   constructor(
     private producaoLeiteService: ProducaoLeiteService,
@@ -27,9 +24,7 @@ export class ProducaoLeitePesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    this.prodLeite = new ProducaoLeite();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de producao de leite');
@@ -41,23 +36,6 @@ export class ProducaoLeitePesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.producaoLeite = dados;
       })
-  }
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    this.prodLeite = {};
-    this.showDialog = true;
-  }
-
-  save() {
-    // if (this.editando) {
-    //   this.updateSetor();
-    // } else {
-    //   this.saveSetor();
-    // }
   }
 
 }

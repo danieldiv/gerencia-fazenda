@@ -13,9 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class GranjasPesquisaComponent implements OnInit {
 
-  granjas: any[] = [];
-  granja?: Granja;
   @ViewChild('tabelaGranjas') grid: any;
+
+  granjas: any[] = [];
 
   constructor(
     private granjaService: GranjaService,
@@ -23,9 +23,7 @@ export class GranjasPesquisaComponent implements OnInit {
     private errorHandler: ErrorHandlerService,
     private confirmationService: ConfirmationService,
     private title: Title
-  ) {
-    // this.granja = new Granja();
-  }
+  ) { }
 
   ngOnInit(): void {
     this.title.setTitle('Pesquisa de granjas');
@@ -38,19 +36,5 @@ export class GranjasPesquisaComponent implements OnInit {
         this.granjas = dados;
       })
   }
-
-  showDialog: boolean = false;
-
-  hideDialog() {
-    this.showDialog = false;
-  }
-
-  openNew() {
-    // this.granja = {};
-    this.granja = new Granja();
-    this.showDialog = true;
-  }
-
-
 
 }
