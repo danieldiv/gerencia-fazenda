@@ -19,6 +19,11 @@ export class CampoService {
       .toPromise();
   }
 
+  buscarPorCodigo(codigo: number): Promise<any> {
+    return this.http.get(`${this.campoUrl}/${codigo}`)
+      .toPromise();
+  }
+
   adicionar(setor: Campo): Promise<any> {
     return this.http.post<any>(this.campoUrl, setor).toPromise();
   }

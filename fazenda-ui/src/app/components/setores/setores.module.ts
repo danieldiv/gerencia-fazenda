@@ -21,9 +21,6 @@ import { SetorCadastroComponent } from './setor-cadastro/setor-cadastro.componen
     SetorCadastroComponent
   ],
   imports: [
-    // CommonModule,
-    // FormsModule,
-
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -1,10 +1,11 @@
 <div class="container">
 
-  <div>
-    <h1>Campos</h1>
-  </div>
-
   <div class="grid">
+
+    <div>
+      <h1>Campos</h1>
+    </div>
+
     <div class="col-12">
       <p-card>
         <p-table [value]="campos" responsiveLayout="scroll" [responsive]="true" #tabelaCampos>
@@ -13,6 +14,7 @@
               <th>Codigo</th>
               <th>Largura</th>
               <th>Comprimento</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-campo>
@@ -20,11 +22,17 @@
               <td>{{campo.codigo}}</td>
               <td>{{campo.largura}}</td>
               <td>{{campo.comprimento}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/campos', campo.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(campo)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="3">
+              <td colspan="4">
                 Nenhum campo encontrado
               </td>
             </tr>
@@ -34,6 +42,7 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/campos/novo"></button>
 
 </div>
