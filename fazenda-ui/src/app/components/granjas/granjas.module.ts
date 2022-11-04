@@ -1,28 +1,28 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { GranjasRoutingModule } from './granjas-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
 import { GranjasPesquisaComponent } from './granjas-pesquisa/granjas-pesquisa.component';
+import { GranjasRoutingModule } from './granjas-routing.module';
+import { GranjaCadastroComponent } from './granja-cadastro/granja-cadastro.component';
 
 
 @NgModule({
   declarations: [
-    GranjasPesquisaComponent
+    GranjasPesquisaComponent,
+    GranjaCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    InputNumberModule,
+    DropdownModule,
 
     SharedModule,
     GranjasRoutingModule

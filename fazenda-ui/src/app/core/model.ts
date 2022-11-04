@@ -65,7 +65,7 @@ export class Animal {
 export class Granja {
   codigo?: number;
   capacidade?: number;
-  qtd_animais?: number;
+  qtdAnimais?: number;
   animal = new Animal();
 }
 
