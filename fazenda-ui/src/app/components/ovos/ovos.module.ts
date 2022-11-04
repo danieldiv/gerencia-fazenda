@@ -1,28 +1,30 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
+import { DropdownModule } from 'primeng/dropdown';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { OvosRoutingModule } from './ovos-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
 import { OvosPesquisaComponent } from './ovos-pesquisa/ovos-pesquisa.component';
+import { OvosRoutingModule } from './ovos-routing.module';
+import { OvosCadastroComponent } from './ovos-cadastro/ovos-cadastro.component';
 
 
 @NgModule({
   declarations: [
-    OvosPesquisaComponent
+    OvosPesquisaComponent,
+    OvosCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    InputNumberModule,
+    SelectButtonModule,
+    DropdownModule,
 
     SharedModule,
     OvosRoutingModule
