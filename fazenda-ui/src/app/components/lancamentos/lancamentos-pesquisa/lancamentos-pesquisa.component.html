@@ -16,6 +16,7 @@
               <th>Tipo</th>
               <th>Categoria</th>
               <th>Valor</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-lancamento>
@@ -26,11 +27,18 @@
               <td>{{lancamento.tipoLancamento}}</td>
               <td>{{lancamento.categoriaLancamento}}</td>
               <td>{{lancamento.valor}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" [disabled]="true"
+                  class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/lancamentos', lancamento.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(lancamento)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="6">
+              <td colspan="7">
                 Nenhum lancamento encontrado
               </td>
             </tr>
@@ -40,6 +48,7 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/lancamentos/novo"></button>
 
 </div>

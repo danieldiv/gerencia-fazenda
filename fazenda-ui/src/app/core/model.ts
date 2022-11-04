@@ -31,6 +31,8 @@ export class Lancamento {
   descricao?: string;
   data?: Date;
   valor?: number;
+  tipoLancamento?: string;
+  categoriaLancamento?: string;
 }
 
 // OPERACIONAL

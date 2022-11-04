@@ -1,0 +1,36 @@
+<div class="container">
+
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Novo'}} Lancamento</h1>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="tipos" name="tipoLancamento" formControlName="tipoLancamento"></p-selectButton>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="categorias" name="categoriaLancamento" formControlName="categoriaLancamento">
+        </p-selectButton>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Descrição</label>
+        <input pInputText type="text" name="descricao" formControlName="descricao">
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Valor</label>
+        <p-inputNumber mode="decimal" name="valor" formControlName="valor"></p-inputNumber>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <a routerLink="/lancamentos">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>

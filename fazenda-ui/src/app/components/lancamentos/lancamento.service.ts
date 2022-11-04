@@ -1,3 +1,4 @@
+import { Lancamento } from './../../core/model';
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -15,6 +16,24 @@ export class LancamentoService {
 
   listarTodos(): Promise<any> {
     return this.http.get(this.lancamentoUrl)
+      .toPromise();
+  }
+
+  adicionar(lancamento: Lancamento): Promise<any> {
+    return this.http.post<any>(this.lancamentoUrl, lancamento).toPromise();
+  }
+
+  atualizar(lancamento: Lancamento): Promise<any> {
+    return this.http.put<any>(`${this.lancamentoUrl}/${lancamento.codigo}`, lancamento).toPromise();
+  }
+
+  excluir(codigo: number): Promise<void> {
+    return this.http.delete<void>(`${this.lancamentoUrl}/${codigo}`)
+      .toPromise();
+  }
+
+  buscarPorCodigo(codigo: number): Promise<any> {
+    return this.http.get(`${this.lancamentoUrl}/${codigo}`)
       .toPromise();
   }
 }
