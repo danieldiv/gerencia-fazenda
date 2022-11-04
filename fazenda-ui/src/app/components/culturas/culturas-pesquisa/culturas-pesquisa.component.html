@@ -1,10 +1,11 @@
 <div class="container">
 
-  <div>
-    <h1>Culturas</h1>
-  </div>
-
   <div class="grid">
+
+    <div class="col-12">
+      <h1>Culturas</h1>
+    </div>
+
     <div class="col-12">
       <p-card>
         <p-table [value]="culturas" responsiveLayout="scroll" [responsive]="true" #tabelaCultura>
@@ -12,12 +13,19 @@
             <tr>
               <th>Codigo</th>
               <th>Descricao</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-cultura>
             <tr>
               <td>{{cultura.codigo}}</td>
               <td>{{cultura.descricao}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/culturas', cultura.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(cultura)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
@@ -32,6 +40,6 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
-
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/culturas/novo"></button>
 </div>

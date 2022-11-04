@@ -26,12 +26,6 @@ import { SetorCadastroComponent } from './setor-cadastro/setor-cadastro.componen
     ReactiveFormsModule,
     HttpClientModule,
 
-    // InputTextModule,
-    // ButtonModule,
-    // TableModule,
-    // PanelModule,
-    // CardModule,
-
     SharedModule,
     SetoresRoutingModule
   ]
