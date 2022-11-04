@@ -10,7 +10,7 @@ import { SegurancaModule } from './guard/seguranca.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

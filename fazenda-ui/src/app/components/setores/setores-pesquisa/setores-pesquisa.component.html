@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div>
+  <div class="col-12">
     <h1>Setores</h1>
   </div>
 
@@ -9,21 +9,23 @@
       <p-card>
         <p-table [value]="setores" responsiveLayout="scroll" [responsive]="true" #tabelaSetores>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Descricao</th>
-                  <th></th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Descricao</th>
+              <th></th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-setor>
-              <tr>
-                  <td>{{setor.codigo}}</td>
-                  <td>{{setor.descricao}}</td>
-                  <td class="col-acoes-header">
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editarSetor(setor)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="confirmarExclusao(setor)"></button>
-                  </td>
-              </tr>
+            <tr>
+              <td>{{setor.codigo}}</td>
+              <td>{{setor.descricao}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/setores', setor.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(setor)"></button>
+              </td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
@@ -37,20 +39,6 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
-
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/setores/novo"></button>
 </div>
-
-<p-dialog [(visible)]="setorDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
-  <ng-template pTemplate="content">
-  <div class="field">
-    <label for="descricao">Descricao</label>
-    <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus>
-  </div>
-  </ng-template>
-  <ng-template pTemplate="footer">
-    <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
-    <button pButton pRipple label="Cancelar" icon="pi pi-times"  (click)="hideDialog()"></button>
-  </ng-template>
-</p-dialog>
-

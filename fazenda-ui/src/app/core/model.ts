@@ -43,7 +43,7 @@ export class Campo {
 
 export class Cultura {
   codigo?: number;
-  nome?: string;
+  descricao?: string;
 }
 
 export class Plantio {

@@ -31,4 +31,9 @@ export class SetorService {
     return this.http.delete<void>(`${this.setorUrl}/${codigo}`)
       .toPromise();
   }
+
+  buscarPorCodigo(codigo: number): Promise<any> {
+    return this.http.get(`${this.setorUrl}/${codigo}`)
+      .toPromise();
+  }
 }

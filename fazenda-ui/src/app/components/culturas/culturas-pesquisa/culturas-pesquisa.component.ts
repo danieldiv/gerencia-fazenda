@@ -50,7 +50,4 @@ export class CulturasPesquisaComponent implements OnInit {
     this.cultura = {};
     this.showDialog = true;
   }
-
-
-
 }

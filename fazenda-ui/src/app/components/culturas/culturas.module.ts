@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,11 +19,12 @@ import { CulturasPesquisaComponent } from './culturas-pesquisa/culturas-pesquisa
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    // ButtonModule,
+    // TableModule,
+    // PanelModule,
+    // CardModule,
 
     SharedModule,
     CulturasRoutingModule

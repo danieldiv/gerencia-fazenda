@@ -9,16 +9,16 @@
       <p-card>
         <p-table [value]="culturas" responsiveLayout="scroll" [responsive]="true" #tabelaCultura>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Descricao</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Descricao</th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-cultura>
-              <tr>
-                  <td>{{cultura.codigo}}</td>
-                  <td>{{cultura.descricao}}</td>
-              </tr>
+            <tr>
+              <td>{{cultura.codigo}}</td>
+              <td>{{cultura.descricao}}</td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
@@ -36,12 +36,13 @@
 
 </div>
 
-<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes do setor" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="showDialog" [style]="{width: '450px'}" header="Detalhes da cultura" [modal]="true"
+  styleClass="p-fluid">
   <ng-template pTemplate="content">
-  <div class="field">
-    <label for="descricao">Descricao</label>
-    <!-- <input pInputText type="text" id="descricao" [(ngModel)]="setor.descricao" required autofocus> -->
-  </div>
+    <div class="field">
+      <label for="descricao">Descricao</label>
+      <input pInputText type="text" id="descricao" [(ngModel)]="cultura.descricao" required autofocus>
+    </div>
   </ng-template>
   <ng-template pTemplate="footer">
     <!-- <button pButton pRipple label="Salvar" icon="pi pi-check"  (click)="save()"></button>
