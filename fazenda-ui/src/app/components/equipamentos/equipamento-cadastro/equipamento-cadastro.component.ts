@@ -53,7 +53,6 @@ export class EquipamentoCadastroComponent implements OnInit {
   carregarEquipamento(codigo: number) {
     this.equipamentoService.buscarPorCodigo(codigo)
       .then(equipamento => {
-        console.log(equipamento);
         this.formulario?.patchValue(equipamento);
         this.atualizarTituloEdicao();
       })

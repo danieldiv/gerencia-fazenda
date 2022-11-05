@@ -34,6 +34,19 @@ export class LancamentoService {
 
   buscarPorCodigo(codigo: number): Promise<any> {
     return this.http.get(`${this.lancamentoUrl}/${codigo}`)
-      .toPromise();
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+
+        return response;
+      })
+  }
+
+  private converterStringsParaData(lancamentos: Lancamento[]) {
+    for (const lancamento of lancamentos) {
+      let offset = new Date().getTimezoneOffset() * 60000;
+
+      lancamento.data = new Date(new Date(lancamento.data!).getTime() + offset);
+    }
   }
 }

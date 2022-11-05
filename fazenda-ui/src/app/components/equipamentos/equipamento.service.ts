@@ -24,7 +24,13 @@ export class EquipamentoService {
   }
 
   atualizar(equipamento: Equipamento): Promise<any> {
-    return this.http.put<any>(`${this.equipamentoUrl}/${equipamento.codigo}`, equipamento).toPromise();
+    return this.http.put<any>(`${this.equipamentoUrl}/${equipamento.codigo}`, equipamento)
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+
+        return response;
+      })
   }
 
   excluir(codigo: number): Promise<void> {
@@ -34,6 +40,19 @@ export class EquipamentoService {
 
   buscarPorCodigo(codigo: number): Promise<any> {
     return this.http.get(`${this.equipamentoUrl}/${codigo}`)
-      .toPromise();
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+
+        return response;
+      })
+  }
+
+  private converterStringsParaData(equipamentos: Equipamento[]) {
+    for (const equipamento of equipamentos) {
+      let offset = new Date().getTimezoneOffset() * 60000;
+
+      equipamento.data = new Date(new Date(equipamento.data!).getTime() + offset);
+    }
   }
 }

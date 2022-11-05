@@ -53,6 +53,7 @@ export class LancamentoCadastroComponent implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       codigo: [],
+      data: [{ value: new Date, disabled: true }],
       descricao: [null, Validators.required],
       valor: [null, Validators.required],
       tipoLancamento: ['RECEITA', Validators.required],
@@ -67,7 +68,6 @@ export class LancamentoCadastroComponent implements OnInit {
   carregarLancamento(codigo: number) {
     this.lancamentoService.buscarPorCodigo(codigo)
       .then(lancamento => {
-        console.log(lancamento);
         this.formulario?.patchValue(lancamento);
         this.atualizarTituloEdicao();
       })
@@ -86,8 +86,8 @@ export class LancamentoCadastroComponent implements OnInit {
       .then(lancamentoAdicionado => {
         this.messageService.add({ severity: 'success', detail: 'Lancamento adicionado com sucesso!' })
 
-        this.router.navigate(['/lancamentos'])
-        // this.router.navigate(['/lancamentos', lancamentoAdicionado.codigo])
+        // this.router.navigate(['/lancamentos'])
+        this.router.navigate(['/lancamentos', lancamentoAdicionado.codigo])
       }).catch(erro => this.errorHandler.handle(erro));
   }
 

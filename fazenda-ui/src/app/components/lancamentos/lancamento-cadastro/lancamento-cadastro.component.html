@@ -26,6 +26,11 @@
         <p-inputNumber mode="decimal" name="valor" formControlName="valor"></p-inputNumber>
       </div>
 
+      <div class="p-fluid col-6">
+        <label>Data</label>
+        <p-calendar name="data" formControlName="data"></p-calendar>
+      </div>
+
       <div class="col-12">
         <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
         <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
