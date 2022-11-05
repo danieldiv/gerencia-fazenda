@@ -1,27 +1,30 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { SharedModule } from '../../shared/shared.module';
 import { ProducaoLeitePesquisaComponent } from './producao-leite-pesquisa/producao-leite-pesquisa.component';
 import { ProducaoLeiteRoutingModule } from './producao-leite-routing.module';
+import { ProducaoLeiteCadastroComponent } from './producao-leite-cadastro/producao-leite-cadastro.component';
 
 
 @NgModule({
   declarations: [
-    ProducaoLeitePesquisaComponent
+    ProducaoLeitePesquisaComponent,
+    ProducaoLeiteCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    InputNumberModule,
+    SelectButtonModule,
+    DropdownModule,
 
     SharedModule,
     ProducaoLeiteRoutingModule

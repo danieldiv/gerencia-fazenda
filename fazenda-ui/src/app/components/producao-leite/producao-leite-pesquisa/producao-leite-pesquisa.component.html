@@ -15,6 +15,7 @@
               <th>Pasto</th>
               <th>Quantidade</th>
               <th>Unidade</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-prodLeite>
@@ -24,11 +25,17 @@
               <td>{{prodLeite.pasto.codigo}}</td>
               <td>{{prodLeite.quantidade}}</td>
               <td>{{prodLeite.unidade}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [disabled]="true" [disabled]="true" [routerLink]="['/producao-leite', prodLeite.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(prodLeite)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="5">
+              <td colspan="6">
                 Nenhuma producao de leite encontrada
               </td>
             </tr>
@@ -38,6 +45,7 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/producao-leite/novo"></button>
 
 </div>
