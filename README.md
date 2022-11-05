@@ -6,7 +6,6 @@
 ![ISOwin10](https://img.shields.io/badge/ISO-Win10-blue)
 ![VersionJava](https://img.shields.io/badge/Java-v17-red)
 ![License](https://badgen.net/badge/license/MIT/green)
-![Spring](https://img.shields.io/github/repo-size/danieldiv/gerencia-fazenda)
 
 <p>
   Este projeto tem o objetivo de auxiliar na gestao de fazendas ...
