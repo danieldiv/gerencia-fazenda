@@ -14,6 +14,7 @@
               <th>Animal</th>
               <th>Capacidade</th>
               <th>Qtd Animais</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-pasto>
@@ -22,6 +23,12 @@
               <td>{{pasto.animal.descricao}}</td>
               <td>{{pasto.capacidade}}</td>
               <td>{{pasto.qtdAnimal}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/pastos', pasto.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(pasto)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
@@ -36,6 +43,7 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/pastos/novo"></button>
 
 </div>
