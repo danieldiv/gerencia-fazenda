@@ -1,28 +1,35 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { PlantiosRoutingModule } from './plantios-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { CheckboxModule } from 'primeng/checkbox';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { SharedModule } from './../../shared/shared.module';
+import { PlantioCadastroComponent } from './plantio-cadastro/plantio-cadastro.component';
 import { PlantiosPesquisaComponent } from './plantios-pesquisa/plantios-pesquisa.component';
+import { PlantiosRoutingModule } from './plantios-routing.module';
+import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
   declarations: [
-    PlantiosPesquisaComponent
+    PlantiosPesquisaComponent,
+    PlantioCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    InputNumberModule,
+    SelectButtonModule,
+    DropdownModule,
+    CheckboxModule,
+    CalendarModule,
+
 
     SharedModule,
     PlantiosRoutingModule

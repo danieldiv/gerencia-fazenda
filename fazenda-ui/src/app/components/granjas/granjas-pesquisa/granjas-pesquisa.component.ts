@@ -1,3 +1,4 @@
+import { Granja } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { GranjaService } from './../granja.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class GranjasPesquisaComponent implements OnInit {
 
-  granjas: any[] = [];
   @ViewChild('tabelaGranjas') grid: any;
+
+  granjas: any[] = [];
 
   constructor(
     private granjaService: GranjaService,
@@ -33,6 +35,24 @@ export class GranjasPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.granjas = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.granjaService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Granja excluída com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

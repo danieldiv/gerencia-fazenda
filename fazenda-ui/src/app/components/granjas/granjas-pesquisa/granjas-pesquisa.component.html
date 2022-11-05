@@ -1,33 +1,41 @@
 <div class="container">
 
-  <div class="col-12">
-    <h1>Granjas</h1>
-  </div>
-
   <div class="grid">
+
+    <div class="col-12">
+      <h1>Granjas</h1>
+    </div>
+
     <div class="col-12">
       <p-card>
         <p-table [value]="granjas" responsiveLayout="scroll" [responsive]="true" #tabelaGranja>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Capacidade</th>
-                  <th>Qtd Animais</th>
-                  <th>Animal</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Capacidade</th>
+              <th>Qtd Animais</th>
+              <th>Animal</th>
+              <th></th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-granja>
-              <tr>
-                  <td>{{granja.codigo}}</td>
-                  <td>{{granja.capacidade}}</td>
-                  <td>{{granja.qtdAnimais}}</td>
-                  <td>{{granja.animal.descricao}}</td>
-              </tr>
+            <tr>
+              <td>{{granja.codigo}}</td>
+              <td>{{granja.capacidade}}</td>
+              <td>{{granja.qtdAnimais}}</td>
+              <td>{{granja.animal.descricao}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/granjas', granja.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(granja)"></button>
+              </td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="1">
-                Nenhum granja encontrado
+              <td colspan="5">
+                Nenhuma granja encontrada
               </td>
             </tr>
           </ng-template>
@@ -35,5 +43,8 @@
       </p-card>
     </div>
   </div>
+
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/granjas/novo"></button>
 
 </div>

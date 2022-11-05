@@ -1,36 +1,44 @@
 <div class="container">
 
-  <div class="col-12">
-    <h1>Lancamentos</h1>
-  </div>
-
   <div class="grid">
+    <div class="col-12">
+      <h1>Lancamentos</h1>
+    </div>
+
     <div class="col-12">
       <p-card>
         <p-table [value]="lancamentos" responsiveLayout="scroll" [responsive]="true" #tabelaLancamento>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Data</th>
-                  <th>Descricao</th>
-                  <th>Tipo</th>
-                  <th>Categoria</th>
-                  <th>Valor</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Data</th>
+              <th>Descricao</th>
+              <th>Tipo</th>
+              <th>Categoria</th>
+              <th>Valor</th>
+              <th></th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-lancamento>
-              <tr>
-                  <td>{{lancamento.codigo}}</td>
-                  <td>{{lancamento.data}}</td>
-                  <td>{{lancamento.descricao}}</td>
-                  <td>{{lancamento.tipoLancamento}}</td>
-                  <td>{{lancamento.categoriaLancamento}}</td>
-                  <td>{{lancamento.valor}}</td>
-              </tr>
+            <tr>
+              <td>{{lancamento.codigo}}</td>
+              <td>{{lancamento.data}}</td>
+              <td>{{lancamento.descricao}}</td>
+              <td>{{lancamento.tipoLancamento}}</td>
+              <td>{{lancamento.categoriaLancamento}}</td>
+              <td>{{lancamento.valor}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" [disabled]="true"
+                  class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/lancamentos', lancamento.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(lancamento)"></button>
+              </td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="1">
+              <td colspan="7">
                 Nenhum lancamento encontrado
               </td>
             </tr>
@@ -39,5 +47,8 @@
       </p-card>
     </div>
   </div>
+
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/lancamentos/novo"></button>
 
 </div>

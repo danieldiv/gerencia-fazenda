@@ -1,3 +1,4 @@
+import { Equipamento } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { EquipamentoService } from './../equipamento.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class EquipamentosPesquisaComponent implements OnInit {
 
-  equipamentos: any[] = [];
   @ViewChild('tabelaEquipamentos') grid: any;
+
+  equipamentos: any[] = [];
 
   constructor(
     private equipamentoService: EquipamentoService,
@@ -33,6 +35,24 @@ export class EquipamentosPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.equipamentos = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.equipamentoService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Equipamento excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

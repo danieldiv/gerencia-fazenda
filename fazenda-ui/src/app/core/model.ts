@@ -21,7 +21,7 @@ export class Funcionario extends Pessoa {
 export class Equipamento {
   codigo?: number;
   nome?: string;
-  dataCompra?: Date;
+  data?: Date;
 }
 
 // FINANCEIRO
@@ -31,19 +31,21 @@ export class Lancamento {
   descricao?: string;
   data?: Date;
   valor?: number;
+  tipoLancamento?: string;
+  categoriaLancamento?: string;
 }
 
 // OPERACIONAL
 
 export class Campo {
-  identificado?: number;
+  codigo?: number;
   largura?: number;
   comprimento?: number;
 }
 
 export class Cultura {
   codigo?: number;
-  nome?: string;
+  descricao?: string;
 }
 
 export class Plantio {
@@ -59,20 +61,21 @@ export class Plantio {
 export class Animal {
   codigo?: number;
   descricao?: string;
+  tipoAnimal?: string;
 }
 
 export class Granja {
   codigo?: number;
   capacidade?: number;
-  qtd_animais?: number;
+  qtdAnimais?: number;
   animal = new Animal();
 }
 
 export class Pasto {
   codigo?: number;
   capacidade?: number;
-  qtd_animais?: number;
-  animal = new Animal();
+  qtdAnimail?: number;
+  animal?= new Animal();
 }
 
 export class ProducaoLeite {

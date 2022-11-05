@@ -1,3 +1,4 @@
+import { Ovos } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { OvosService } from './../ovos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class OvosPesquisaComponent implements OnInit {
 
-  ovos: any[] = [];
   @ViewChild('tabelaOvos') grid: any;
+
+  ovos: any[] = [];
 
   constructor(
     private ovosService: OvosService,
@@ -33,6 +35,24 @@ export class OvosPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.ovos = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.ovosService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Setor excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

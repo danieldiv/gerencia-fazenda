@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="col-12">
+  <div>
     <h1>Producao de Leite</h1>
   </div>
 
@@ -9,27 +9,34 @@
       <p-card>
         <p-table [value]="producaoLeite" responsiveLayout="scroll" [responsive]="true" #tabelaProducaoLeite>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Data</th>
-                  <th>Pasto</th>
-                  <th>Quantidade</th>
-                  <th>Unidade</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Data</th>
+              <th>Pasto</th>
+              <th>Quantidade</th>
+              <th>Unidade</th>
+              <th></th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-prodLeite>
-              <tr>
-                  <td>{{prodLeite.codigo}}</td>
-                  <td>{{prodLeite.data}}</td>
-                  <td>{{prodLeite.pasto.codigo}}</td>
-                  <td>{{prodLeite.quantidade}}</td>
-                  <td>{{prodLeite.unidade}}</td>
-              </tr>
+            <tr>
+              <td>{{prodLeite.codigo}}</td>
+              <td>{{prodLeite.data}}</td>
+              <td>{{prodLeite.pasto.codigo}}</td>
+              <td>{{prodLeite.quantidade}}</td>
+              <td>{{prodLeite.unidade}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [disabled]="true" [disabled]="true" [routerLink]="['/producao-leite', prodLeite.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(prodLeite)"></button>
+              </td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="1">
-                Nenhum producaoLeite encontrado
+              <td colspan="6">
+                Nenhuma producao de leite encontrada
               </td>
             </tr>
           </ng-template>
@@ -37,5 +44,8 @@
       </p-card>
     </div>
   </div>
+
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/producao-leite/novo"></button>
 
 </div>

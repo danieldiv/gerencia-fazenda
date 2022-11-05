@@ -1,0 +1,54 @@
+<div class="container">
+
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Novo'}} Plantio</h1>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid" formGroupName="campo">
+        <label>Campos</label>
+        <p-dropdown [options]="campos" placeholder="Selecione" name="campo" formControlName="codigo">
+        </p-dropdown>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid" formGroupName="cultura">
+        <label>Culturas</label>
+        <p-dropdown [options]="culturas" placeholder="Selecione" name="cultura" formControlName="codigo">
+        </p-dropdown>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Quantidade</label>
+        <p-inputNumber name="qtdColhido" formControlName="qtdColhido"></p-inputNumber>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Data Plantio</label>
+        <p-calendar name="dataPlantio" formControlName="dataPlantio"></p-calendar>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Data Colheita</label>
+        <p-calendar name="dataColheita" formControlName="dataColheita"></p-calendar>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="situacoes" name="situacao" formControlName="situacao">
+        </p-selectButton>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="unidades" name="unidade" formControlName="unidade">
+        </p-selectButton>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <a routerLink="/plantios">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>

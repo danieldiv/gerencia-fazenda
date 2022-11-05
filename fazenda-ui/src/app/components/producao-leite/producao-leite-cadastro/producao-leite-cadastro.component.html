@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Nova'}} Produção de leite</h1>
+      </div>
+
+      <div class="col-12">
+        <p-selectButton [options]="unidades" name="unidade" formControlName="unidade">
+        </p-selectButton>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid" formGroupName="pasto">
+        <label>Pastos</label>
+        <p-dropdown [options]="pastos" placeholder="Selecione" name="granja" formControlName="codigo">
+        </p-dropdown>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Quantidade</label>
+        <p-inputNumber name="quantidade" formControlName="quantidade"></p-inputNumber>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <a routerLink="/producao-leite">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>

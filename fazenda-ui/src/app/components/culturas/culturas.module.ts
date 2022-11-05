@@ -1,28 +1,23 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { CulturasRoutingModule } from './culturas-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
+import { CulturaCadastroComponent } from './cultura-cadastro/cultura-cadastro.component';
 import { CulturasPesquisaComponent } from './culturas-pesquisa/culturas-pesquisa.component';
+import { CulturasRoutingModule } from './culturas-routing.module';
 
 
 @NgModule({
   declarations: [
-    CulturasPesquisaComponent
+    CulturasPesquisaComponent,
+    CulturaCadastroComponent
   ],
   imports: [
     CommonModule,
-
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
     SharedModule,
     CulturasRoutingModule

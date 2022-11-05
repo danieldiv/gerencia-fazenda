@@ -3,7 +3,7 @@ package com.faculdade.fazenda.api.model.tipos;
 public enum Unidade {
 
 	QUILO("Quilo"),
-	DUZIA("Duzio"),
+	DUZIA("Duzia"),
 	LITRO("Litro");
 
 	private final String descricao;

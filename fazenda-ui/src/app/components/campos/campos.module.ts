@@ -1,28 +1,25 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { CamposRoutingModule } from './campos-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
 import { CamposPesquisaComponent } from './campos-pesquisa/campos-pesquisa.component';
-
+import { CamposRoutingModule } from './campos-routing.module';
+import { CampoCadastroComponent } from './campo-cadastro/campo-cadastro.component';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
-    CamposPesquisaComponent
+    CamposPesquisaComponent,
+    CampoCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    InputNumberModule,
 
     SharedModule,
     CamposRoutingModule

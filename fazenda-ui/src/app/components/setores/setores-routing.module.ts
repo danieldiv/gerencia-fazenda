@@ -1,3 +1,4 @@
+import { SetorCadastroComponent } from './setor-cadastro/setor-cadastro.component';
 import { AuthGuard } from './../../guard/auth.guard';
 import { SetoresPesquisaComponent } from './setores-pesquisa/setores-pesquisa.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,18 @@ const routes: Routes = [
     component: SetoresPesquisaComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_PESQUISAR_SETOR'] }
+  },
+  {
+    path: 'novo',
+    component: SetorCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_SETOR'] }
+  },
+  {
+    path: ':codigo',
+    component: SetorCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_SETOR'] }
   }
 ];
 

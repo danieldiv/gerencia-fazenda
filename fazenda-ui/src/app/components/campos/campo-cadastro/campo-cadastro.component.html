@@ -1,0 +1,27 @@
+<div class="container">
+
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Novo'}} Campo</h1>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Largura</label>
+        <p-inputNumber name="largura" formControlName="largura"></p-inputNumber>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Comprimento</label>
+        <p-inputNumber name="comprimento" formControlName="comprimento"></p-inputNumber>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <a routerLink="/campos">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>

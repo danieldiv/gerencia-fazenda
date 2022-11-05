@@ -1,3 +1,4 @@
+import { ProducaoLeite } from './../../../core/model';
 import { ProducaoLeiteService } from './../producao-leite.service';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -13,8 +14,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class ProducaoLeitePesquisaComponent implements OnInit {
 
-  producaoLeite: any[] = [];
   @ViewChild('tabelaProducaoLeite') grid: any;
+
+  producaoLeite: any[] = [];
 
   constructor(
     private producaoLeiteService: ProducaoLeiteService,
@@ -34,6 +36,24 @@ export class ProducaoLeitePesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.producaoLeite = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.producaoLeiteService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Producao de leite excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

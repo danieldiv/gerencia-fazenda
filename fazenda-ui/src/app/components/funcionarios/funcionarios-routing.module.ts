@@ -1,3 +1,4 @@
+import { FuncionarioCadastroComponent } from './funcionario-cadastro/funcionario-cadastro.component';
 import { AuthGuard } from './../../guard/auth.guard';
 import { FuncionariosPesquisaComponent } from './funcionarios-pesquisa/funcionarios-pesquisa.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,18 @@ const routes: Routes = [
     component: FuncionariosPesquisaComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_PESQUISAR_FUNCIONARIO'] }
+  },
+  {
+    path: 'novo',
+    component: FuncionarioCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_FUNCIONARIO'] }
+  },
+  {
+    path: ':codigo',
+    component: FuncionarioCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_FUNCIONARIO'] }
   }
 ];
 

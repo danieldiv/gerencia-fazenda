@@ -1,28 +1,29 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { LancamentosRoutingModule } from './lancamentos-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './../../shared/shared.module';
+import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentosRoutingModule } from './lancamentos-routing.module';
+import { InputNumberModule } from 'primeng/inputnumber';
+
 
 
 @NgModule({
   declarations: [
-    LancamentosPesquisaComponent
+    LancamentosPesquisaComponent,
+    LancamentoCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    SelectButtonModule,
+    InputNumberModule,
 
     SharedModule,
     LancamentosRoutingModule

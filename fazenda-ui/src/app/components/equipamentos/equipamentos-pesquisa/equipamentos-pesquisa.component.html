@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="col-12">
+  <div>
     <h1>Equipamentos</h1>
   </div>
 
@@ -9,22 +9,30 @@
       <p-card>
         <p-table [value]="equipamentos" responsiveLayout="scroll" [responsive]="true" #tabelaEquipamento>
           <ng-template pTemplate="header">
-              <tr>
-                  <th>Codigo</th>
-                  <th>Nome</th>
-                  <th>Data Compra</th>
-              </tr>
+            <tr>
+              <th>Codigo</th>
+              <th>Nome</th>
+              <th>Data Compra</th>
+              <th></th>
+            </tr>
           </ng-template>
           <ng-template pTemplate="body" let-equipamento>
-              <tr>
-                  <td>{{equipamento.codigo}}</td>
-                  <td>{{equipamento.nome}}</td>
-                  <td>{{equipamento.data}}</td>
-              </tr>
+            <tr>
+              <td>{{equipamento.codigo}}</td>
+              <td>{{equipamento.nome}}</td>
+              <td>{{equipamento.data}}</td>
+              <td class="col-acoes-header">
+                <button pButton [disabled]="true" pRipple icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success mr-2"
+                  [routerLink]="['/equipamentos', equipamento.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(equipamento)"></button>
+              </td>
+            </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="1">
+              <td colspan="4">
                 Nenhum equipamento encontrado
               </td>
             </tr>
@@ -33,5 +41,8 @@
       </p-card>
     </div>
   </div>
+
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/equipamentos/novo"></button>
 
 </div>

@@ -1,3 +1,4 @@
+import { Funcionario } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { FuncionarioService } from './../funcionario.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class FuncionariosPesquisaComponent implements OnInit {
 
-  funcionarios: any[] = [];
   @ViewChild('tabelaFuncionarios') grid: any;
+
+  funcionarios: any[] = [];
 
   constructor(
     private funcionarioService: FuncionarioService,
@@ -33,6 +35,24 @@ export class FuncionariosPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.funcionarios = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.funcionarioService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Setor excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

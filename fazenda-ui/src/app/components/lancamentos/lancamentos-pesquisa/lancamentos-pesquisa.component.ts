@@ -1,3 +1,4 @@
+import { Cultura, Lancamento } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { LancamentoService } from './../lancamento.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class LancamentosPesquisaComponent implements OnInit {
 
-  lancamentos: any[] = [];
   @ViewChild('tabelaLancamentos') grid: any;
+
+  lancamentos: any[] = [];
 
   constructor(
     private lancamentoService: LancamentoService,
@@ -33,6 +35,24 @@ export class LancamentosPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.lancamentos = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.lancamentoService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Setor excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

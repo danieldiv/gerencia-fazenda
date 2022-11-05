@@ -1,3 +1,4 @@
+import { Animal } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -11,8 +12,9 @@ import { AnimalService } from './../animal.service';
 })
 export class AnimaisPesquisaComponent implements OnInit {
 
-  animais: any[] = [];
   @ViewChild('tabelaAnimais') grid: any;
+
+  animais: any[] = [];
 
   constructor(
     private animalService: AnimalService,
@@ -32,6 +34,24 @@ export class AnimaisPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.animais = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.animalService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Animal excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

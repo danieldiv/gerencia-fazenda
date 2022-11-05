@@ -1,28 +1,27 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
-
-
-import { FuncionariosRoutingModule } from './funcionarios-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { SharedModule } from './../../shared/shared.module';
+import { FuncionarioCadastroComponent } from './funcionario-cadastro/funcionario-cadastro.component';
 import { FuncionariosPesquisaComponent } from './funcionarios-pesquisa/funcionarios-pesquisa.component';
-
+import { FuncionariosRoutingModule } from './funcionarios-routing.module';
 
 @NgModule({
   declarations: [
-    FuncionariosPesquisaComponent
+    FuncionariosPesquisaComponent,
+    FuncionarioCadastroComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
-    ButtonModule,
-    TableModule,
-    PanelModule,
-    CardModule,
+    DropdownModule,
+    CalendarModule,
 
     SharedModule,
     FuncionariosRoutingModule

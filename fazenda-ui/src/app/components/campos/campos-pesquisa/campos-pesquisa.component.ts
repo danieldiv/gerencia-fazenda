@@ -1,3 +1,4 @@
+import { Campo } from './../../../core/model';
 import { ErrorHandlerService } from './../../../core/error-handler.service';
 import { CampoService } from './../campo.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,8 +13,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class CamposPesquisaComponent implements OnInit {
 
-  campos: any[] = [];
   @ViewChild('tabelaCampos') grid: any;
+
+  campos: any[] = [];
 
   constructor(
     private campoService: CampoService,
@@ -33,6 +35,24 @@ export class CamposPesquisaComponent implements OnInit {
       .then((dados: any) => {
         this.campos = dados;
       })
+  }
+
+  confirmarExclusao(setor: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(setor);
+      }
+    });
+  }
+
+  excluir(setor: any) {
+    this.campoService.excluir(setor.codigo)
+      .then(() => {
+        this.messageService.add({ severity: 'success', detail: 'Campo excluído com sucesso!' })
+        this.pesquisar();
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
 }

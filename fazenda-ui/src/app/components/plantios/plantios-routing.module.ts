@@ -1,3 +1,4 @@
+import { PlantioCadastroComponent } from './plantio-cadastro/plantio-cadastro.component';
 import { AuthGuard } from './../../guard/auth.guard';
 import { PlantiosPesquisaComponent } from './plantios-pesquisa/plantios-pesquisa.component';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,18 @@ const routes: Routes = [
     component: PlantiosPesquisaComponent,
     canActivate: [AuthGuard],
     data: { roles: ['ROLE_PESQUISAR_PLANTIO'] }
+  },
+  {
+    path: 'novo',
+    component: PlantioCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_PLANTIO'] }
+  },
+  {
+    path: ':codigo',
+    component: PlantioCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['ROLE_CADASTRAR_PLANTIO'] }
   }
 ];
 

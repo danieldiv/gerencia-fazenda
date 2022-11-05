@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="grid">
+      <div class="col-12">
+        <h1>{{editando ? 'Edição de' : 'Nova'}} Pasto</h1>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Capacidade</label>
+        <p-inputNumber name="capacidade" formControlName="capacidade"></p-inputNumber>
+      </div>
+
+      <div class="p-fluid col-6">
+        <label>Quantidade animais</label>
+        <p-inputNumber name="qtdAnimal" formControlName="qtdAnimal"></p-inputNumber>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid" formGroupName="animal">
+        <label>Animal</label>
+        <p-dropdown [options]="animais" placeholder="Selecione" name="animal" formControlName="codigo">
+        </p-dropdown>
+      </div>
+
+      <div class="col-12">
+        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
+        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <a routerLink="/pastos">Voltar para a pesquisa</a>
+      </div>
+    </div>
+  </form>
+</div>
