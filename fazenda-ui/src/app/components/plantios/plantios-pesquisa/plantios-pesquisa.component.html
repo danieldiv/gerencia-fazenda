@@ -18,6 +18,7 @@
               <th>Qtd Colhido</th>
               <th>Situacao</th>
               <th>Unidade</th>
+              <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-plantio>
@@ -30,6 +31,12 @@
               <td>{{plantio.qtdColhido}}</td>
               <td>{{plantio.situacao}}</td>
               <td>{{plantio.unidade}}</td>
+              <td class="col-acoes-header">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                  [disabled]="true" [routerLink]="['/plantios', plantio.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(plantio)"></button>
+              </td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">
@@ -44,6 +51,7 @@
     </div>
   </div>
 
-  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"></button>
+  <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2"
+    routerLink="/plantios/novo"></button>
 
 </div>
