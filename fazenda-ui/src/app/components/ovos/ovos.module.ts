@@ -9,7 +9,8 @@ import { SharedModule } from './../../shared/shared.module';
 import { OvosPesquisaComponent } from './ovos-pesquisa/ovos-pesquisa.component';
 import { OvosRoutingModule } from './ovos-routing.module';
 import { OvosCadastroComponent } from './ovos-cadastro/ovos-cadastro.component';
-
+import { CalendarModule } from 'primeng/calendar';
+import { SliderModule } from 'primeng/slider';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { OvosCadastroComponent } from './ovos-cadastro/ovos-cadastro.component';
     InputNumberModule,
     SelectButtonModule,
     DropdownModule,
+    CalendarModule,
 
     SharedModule,
     OvosRoutingModule

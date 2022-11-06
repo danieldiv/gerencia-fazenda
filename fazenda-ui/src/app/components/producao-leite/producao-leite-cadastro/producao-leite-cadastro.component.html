@@ -7,9 +7,17 @@
         <h1>{{editando ? 'Edição de' : 'Nova'}} Produção de leite</h1>
       </div>
 
-      <div class="col-12">
+      <div class="col-12 md:col-6 p-fluid">
         <p-selectButton [options]="unidades" name="unidade" formControlName="unidade">
         </p-selectButton>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid">
+        <p-inputNumber placeholder="Quantidade" name="quantidade" formControlName="quantidade" [showButtons]="true"
+          buttonLayout="horizontal" inputId="quantidade" spinnerMode="horizontal" [step]="100"
+          decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+        </p-inputNumber>
       </div>
 
       <div class="col-12 md:col-6 p-fluid" formGroupName="pasto">
@@ -18,14 +26,11 @@
         </p-dropdown>
       </div>
 
-      <div class="p-fluid col-6">
-        <label>Quantidade</label>
-        <p-inputNumber name="quantidade" formControlName="quantidade"></p-inputNumber>
-      </div>
-
       <div class="col-12">
-        <button pButton type="submit" label="Salvar"></button>
-        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <button style="margin-right: .5rem;" pButton type="submit" label="Salvar"
+          [disabled]="formulario.invalid"></button>
+        <button style="margin-right: .5rem;" pButton type="button" label="Novo" class="p-button-success"
+          (click)="novo()"></button>
         <a routerLink="/producao-leite">Voltar para a pesquisa</a>
       </div>
     </div>

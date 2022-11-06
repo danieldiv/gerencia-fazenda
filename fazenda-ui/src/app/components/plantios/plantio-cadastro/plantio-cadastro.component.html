@@ -20,11 +20,6 @@
       </div>
 
       <div class="p-fluid col-6">
-        <label>Quantidade</label>
-        <p-inputNumber name="qtdColhido" formControlName="qtdColhido"></p-inputNumber>
-      </div>
-
-      <div class="p-fluid col-6">
         <label>Data Plantio</label>
         <p-calendar name="dataPlantio" formControlName="dataPlantio"></p-calendar>
       </div>
@@ -34,12 +29,20 @@
         <p-calendar name="dataColheita" formControlName="dataColheita"></p-calendar>
       </div>
 
-      <div class="col-12">
+      <div class="col-12 md:col-4 p-fluid">
         <p-selectButton [options]="situacoes" name="situacao" formControlName="situacao">
         </p-selectButton>
       </div>
 
-      <div class="col-12">
+      <div class="col-12 md:col-4 p-fluid">
+        <p-inputNumber placeholder="Quantidade" name="qtdColhido" formControlName="qtdColhido" [showButtons]="true"
+          buttonLayout="horizontal" inputId="quantidade" spinnerMode="horizontal" [step]="100"
+          decrementButtonClass="p-button-danger" incrementButtonClass="p-button-success"
+          incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+        </p-inputNumber>
+      </div>
+
+      <div class="col-12 md:col-4 p-fluid">
         <p-selectButton [options]="unidades" name="unidade" formControlName="unidade">
         </p-selectButton>
       </div>

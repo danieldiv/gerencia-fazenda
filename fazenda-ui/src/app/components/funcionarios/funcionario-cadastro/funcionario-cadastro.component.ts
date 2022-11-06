@@ -49,6 +49,7 @@ export class FuncionarioCadastroComponent implements OnInit {
       nome: [null, Validators.required],
       telefone: [null, Validators.required],
       cpf: [null, Validators.required],
+      dataCadastro: [{ value: new Date, disabled: true }],
       dataNascimento: [null, Validators.required],
       setor: this.formBuilder.group({
         codigo: [null, Validators.required],

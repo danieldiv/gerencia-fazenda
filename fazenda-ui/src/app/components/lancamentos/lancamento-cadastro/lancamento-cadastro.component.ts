@@ -19,8 +19,7 @@ export class LancamentoCadastroComponent implements OnInit {
   categorias = [
     { label: 'Cliente', value: 'CLIENTE' },
     { label: 'Fornecedor', value: 'FORNECEDOR' },
-    { label: 'Funcionario', value: 'FUNCIONARIO' },
-    { label: 'Outro', value: 'OUTRO' }
+    { label: 'Funcionario', value: 'FUNCIONARIO' }
   ];
 
   tipos = [

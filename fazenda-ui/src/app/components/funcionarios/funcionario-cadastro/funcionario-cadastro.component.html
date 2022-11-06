@@ -7,7 +7,7 @@
         <h1>{{editando ? 'Edição de' : 'Novo'}} Funcionario</h1>
       </div>
 
-      <div class="p-fluid col-6">
+      <div class="col-12 md:col-6 p-fluid">
         <label>Nome</label>
         <input pInputText type="text" name="nome" formControlName="nome">
       </div>
@@ -18,19 +18,24 @@
         </p-dropdown>
       </div>
 
-      <div class="p-fluid col-6">
+      <div class="col-6 p-fluid">
         <label>Telefone</label>
         <input pInputText type="text" name="telefone" formControlName="telefone">
       </div>
 
-      <div class="p-fluid col-6">
+      <div class="col-6 p-fluid">
         <label>CPF</label>
         <input pInputText type="text" name="cpf" formControlName="cpf">
       </div>
 
-      <div class="p-fluid col-6">
+      <div class="col-6 p-fluid">
         <label>Data Nascimento</label>
         <p-calendar name="dataNascimento" formControlName="dataNascimento"></p-calendar>
+      </div>
+
+      <div class="col-6 p-fluid">
+        <label>Data Cadastro</label>
+        <p-calendar name="dataCadastro" formControlName="dataCadastro"></p-calendar>
       </div>
 
       <div class="col-12">

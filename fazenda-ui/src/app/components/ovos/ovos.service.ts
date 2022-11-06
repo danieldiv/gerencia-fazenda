@@ -24,7 +24,12 @@ export class OvosService {
   }
 
   atualizar(ovos: Ovos): Promise<any> {
-    return this.http.put<any>(`${this.ovosUrl}/${ovos.codigo}`, ovos).toPromise();
+    return this.http.put<any>(`${this.ovosUrl}/${ovos.codigo}`, ovos)
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+        return response;
+      })
   }
 
   excluir(codigo: number): Promise<void> {
@@ -34,6 +39,18 @@ export class OvosService {
 
   buscarPorCodigo(codigo: number): Promise<any> {
     return this.http.get(`${this.ovosUrl}/${codigo}`)
-      .toPromise();
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+        return response;
+      })
+  }
+
+  private converterStringsParaData(listOvos: Ovos[]) {
+    for (const ovos of listOvos) {
+      let offset = new Date().getTimezoneOffset() * 60000;
+
+      ovos.data = new Date(new Date(ovos.data!).getTime() + offset);
+    }
   }
 }
