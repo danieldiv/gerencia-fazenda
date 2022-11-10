@@ -8,7 +8,7 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentosRoutingModule } from './lancamentos-routing.module';
 import { InputNumberModule } from 'primeng/inputnumber';
-
+import { CalendarModule } from 'primeng/calendar';
 
 
 @NgModule({
@@ -24,6 +24,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 
     SelectButtonModule,
     InputNumberModule,
+    CalendarModule,
 
     SharedModule,
     LancamentosRoutingModule

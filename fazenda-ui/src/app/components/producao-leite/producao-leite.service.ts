@@ -24,7 +24,12 @@ export class ProducaoLeiteService {
   }
 
   atualizar(producaoLeite: ProducaoLeite): Promise<any> {
-    return this.http.put<any>(`${this.producaoLeiteUrl}/${producaoLeite.codigo}`, producaoLeite).toPromise();
+    return this.http.put<any>(`${this.producaoLeiteUrl}/${producaoLeite.codigo}`, producaoLeite)
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+        return response;
+      })
   }
 
   excluir(codigo: number): Promise<void> {
@@ -34,6 +39,18 @@ export class ProducaoLeiteService {
 
   buscarPorCodigo(codigo: number): Promise<any> {
     return this.http.get(`${this.producaoLeiteUrl}/${codigo}`)
-      .toPromise();
+      .toPromise()
+      .then((response: any) => {
+        this.converterStringsParaData([response]);
+        return response;
+      })
+  }
+
+  private converterStringsParaData(listProdLeite: ProducaoLeite[]) {
+    for (const prodLeite of listProdLeite) {
+      let offset = new Date().getTimezoneOffset() * 60000;
+
+      prodLeite.data = new Date(new Date(prodLeite.data!).getTime() + offset);
+    }
   }
 }

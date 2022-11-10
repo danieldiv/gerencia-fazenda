@@ -7,9 +7,14 @@
         <h1>{{editando ? 'Edição de' : 'Novo'}} Ovos</h1>
       </div>
 
-      <div class="col-12">
+      <div class="col-12 md:col-6 p-fluid">
         <p-selectButton [options]="unidades" name="unidade" formControlName="unidade">
         </p-selectButton>
+      </div>
+
+      <div class="col-12 md:col-6 p-fluid">
+        <!-- <label>Data</label> -->
+        <p-calendar name="data" formControlName="data"></p-calendar>
       </div>
 
       <div class="col-12 md:col-6 p-fluid" formGroupName="granja">
@@ -18,9 +23,12 @@
         </p-dropdown>
       </div>
 
-      <div class="p-fluid col-6">
+      <div class="col-12 md:col-6 p-fluid">
         <label>Quantidade</label>
-        <p-inputNumber name="quantidade" formControlName="quantidade"></p-inputNumber>
+        <p-inputNumber name="quantidade" formControlName="quantidade" [showButtons]="true" buttonLayout="horizontal"
+          inputId="quantidade" spinnerMode="horizontal" [step]="10" decrementButtonClass="p-button-danger"
+          incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+        </p-inputNumber>
       </div>
 
       <div class="col-12">

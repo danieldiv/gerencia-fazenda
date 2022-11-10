@@ -52,12 +52,17 @@ export class OvosCadastroComponent implements OnInit {
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
       codigo: [],
+      data: [{ value: new Date, disabled: true }],
       quantidade: [null, Validators.required],
       unidade: [{ value: 'DUZIA', disabled: true }],
       granja: this.formBuilder.group({
         codigo: [null, Validators.required],
       })
     });
+  }
+
+  get quantidade() {
+    return this.formulario.get('quantidade')?.value;
   }
 
   get editando() {

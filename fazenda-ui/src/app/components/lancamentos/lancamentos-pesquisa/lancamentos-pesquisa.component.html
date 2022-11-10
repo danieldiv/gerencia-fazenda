@@ -26,7 +26,14 @@
               <td>{{lancamento.descricao}}</td>
               <td>{{lancamento.tipoLancamento}}</td>
               <td>{{lancamento.categoriaLancamento}}</td>
-              <td>{{lancamento.valor}}</td>
+              <!-- <td>{{lancamento.valor}}</td> -->
+
+              <td>
+                <span [style.color]="lancamento.tipoLancamento === 'DESPESA' ? 'red' : 'blue'">
+                  {{ lancamento.valor | number:'1.2-2':'pt-BR' }}
+                </span>
+              </td>
+
               <td class="col-acoes-header">
                 <button pButton pRipple icon="pi pi-pencil" [disabled]="true"
                   class="p-button-rounded p-button-success mr-2"
