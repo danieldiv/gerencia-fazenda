@@ -1,6 +1,6 @@
-:host ::ng-deep .p-button {
+/* :host ::ng-deep .p-button {
   margin-right: .5rem;
-}
+} */
 
 @media screen and (max-width: 400px) {
   .p-button {

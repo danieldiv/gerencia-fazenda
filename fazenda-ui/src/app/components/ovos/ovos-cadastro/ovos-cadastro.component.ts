@@ -1,7 +1,7 @@
 import { GranjaService } from './../../granjas/granja.service';
 import { OvosService } from './../ovos.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -61,10 +61,6 @@ export class OvosCadastroComponent implements OnInit {
     });
   }
 
-  get quantidade() {
-    return this.formulario.get('quantidade')?.value;
-  }
-
   get editando() {
     return Boolean(this.formulario.get('codigo')?.value);
   }
@@ -106,17 +102,18 @@ export class OvosCadastroComponent implements OnInit {
   }
 
   atualizarOvos() {
-    this.ovosService.atualizar(this.formulario.value)
-      .then((ovos: Ovos) => {
-        this.formulario.patchValue(ovos);
-        this.messageService.add({ severity: 'success', detail: 'Ovos alterado com sucesso!' })
-        this.atualizarTituloEdicao();
-      }).catch(erro => this.errorHandler.handle(erro));
+    // this.ovosService.atualizar(this.formulario.value)
+    //   .then((ovos: Ovos) => {
+    //     this.formulario.patchValue(ovos);
+    //     this.messageService.add({ severity: 'success', detail: 'Ovos alterado com sucesso!' })
+    //     this.atualizarTituloEdicao();
+    //   }).catch(erro => this.errorHandler.handle(erro));
   }
 
   novo() {
     this.formulario.reset();
     this.formulario.patchValue(new Ovos());
+    this.configurarFormulario();
     this.router.navigate(['ovos/novo']);
   }
 

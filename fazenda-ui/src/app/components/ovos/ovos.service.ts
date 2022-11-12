@@ -17,19 +17,19 @@ export class OvosService {
   listarTodos(): Promise<any> {
     return this.http.get(this.ovosUrl)
       .toPromise();
+    // .then((response: any) => {
+    //   this.converterStringsParaData([response]);
+    //   return response;
+    // })
   }
 
   adicionar(ovos: Ovos): Promise<any> {
     return this.http.post<any>(this.ovosUrl, ovos).toPromise();
   }
 
-  atualizar(ovos: Ovos): Promise<any> {
-    return this.http.put<any>(`${this.ovosUrl}/${ovos.codigo}`, ovos)
-      .toPromise()
-      .then((response: any) => {
-        this.converterStringsParaData([response]);
-        return response;
-      })
+  atualizarQuantidade(codigo: number, quantidade: number): Promise<any> {
+    return this.http.put<any>(`${this.ovosUrl}/${codigo}/quantidade`, quantidade)
+      .toPromise();
   }
 
   excluir(codigo: number): Promise<void> {
@@ -51,6 +51,7 @@ export class OvosService {
       let offset = new Date().getTimezoneOffset() * 60000;
 
       ovos.data = new Date(new Date(ovos.data!).getTime() + offset);
+      // console.log(ovos);
     }
   }
 }
