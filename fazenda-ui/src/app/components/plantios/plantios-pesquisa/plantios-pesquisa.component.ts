@@ -16,6 +16,13 @@ export class PlantiosPesquisaComponent implements OnInit {
   @ViewChild('tabelaPlantios') grid: any;
 
   plantios: any[] = [];
+  plantio: any;
+
+  showQtdDialog = false;
+  showInfoDialog = false;
+
+  quantidade!: number;
+  codigoOvos!: number;
 
   constructor(
     private plantioService: PlantioService,
@@ -53,6 +60,51 @@ export class PlantiosPesquisaComponent implements OnInit {
         this.pesquisar();
       })
       .catch(erro => this.errorHandler.handle(erro));
+  }
+
+  openAddQtd(codigo: number) {
+    this.codigoOvos = -1;
+
+    if (codigo) {
+      this.codigoOvos = codigo;
+    }
+    this.quantidade = 1;
+    this.showQtdDialog = true;
+  }
+
+  openInfo(codigo: number) {
+    // this.ovosFind = new Ovos();
+    this.plantio = new Plantio();
+    this.showInfoDialog = true;
+
+    // this.carregarOvos(codigo);
+  }
+
+  hideDialogInfo() {
+    this.showInfoDialog = false;
+  }
+
+  hideDialogQtd() {
+    this.showQtdDialog = false;
+  }
+
+  carregarOvos(codigo: number) {
+    this.plantioService.buscarPorCodigo(codigo)
+      .then(plantio => {
+        this.plantio = plantio;
+      })
+  }
+
+  atualizarPlantio() {
+    // if (this.codigoOvos != -1) {
+    //   this.ovosService.atualizarQuantidade(this.codigoOvos, this.quantidade)
+    //     .then(() => {
+    //       this.messageService.add({ severity: 'success', detail: 'Ovos alterado com sucesso!' })
+    //       // this.sharedService.reload("/ovos");
+    //       this.hideDialogQtd();
+    //       this.pesquisar();
+    //     }).catch(erro => this.errorHandler.handle(erro));
+    // }
   }
 
 }

@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -30,7 +28,6 @@ import { MessageComponent } from './message/message.component';
   ],
   exports: [
     MessageComponent,
-    DialogModule,
 
     DialogModule,
     ButtonModule,

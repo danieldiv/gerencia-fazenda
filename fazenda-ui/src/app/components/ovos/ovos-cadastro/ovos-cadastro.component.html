@@ -32,8 +32,10 @@
       </div>
 
       <div class="col-12">
-        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid"></button>
-        <button pButton type="button" label="Novo" class="p-button-success" (click)="novo()"></button>
+        <button style="margin-right: .5rem;" pButton type="submit" label="Salvar"
+          [disabled]="formulario.invalid"></button>
+        <button style="margin-right: .5rem;" pButton type="button" label="Novo" class="p-button-success"
+          (click)="novo()"></button>
         <a routerLink="/ovos">Voltar para a pesquisa</a>
       </div>
     </div>

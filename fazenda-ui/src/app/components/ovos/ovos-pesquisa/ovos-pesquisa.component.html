@@ -10,24 +10,20 @@
         <p-table [value]="ovos" responsiveLayout="scroll" [responsive]="true" #tabelaOvo>
           <ng-template pTemplate="header">
             <tr>
-              <th>Codigo</th>
-              <th>Data</th>
               <th>Granja</th>
               <th>Quantidade</th>
-              <th>Unidade</th>
               <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-ovo>
             <tr>
-              <td>{{ovo.codigo}}</td>
-              <td>{{ovo.data}}</td>
               <td>{{ovo.granja.codigo}}</td>
               <td>{{ovo.quantidade}}</td>
-              <td>{{ovo.unidade}}</td>
-              <td class="col-acoes-header">
-                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                  [disabled]="true" [routerLink]="['/ovos', ovo.codigo]"></button>
+              <td class="col-tri-acoes-header">
+                <button pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-success mr-2"
+                  [disabled]="false" (click)="openNew(ovo.codigo)"></button>
+                <button pButton pRipple icon="pi pi-search" class="p-button-rounded p-button-primary mr-2"
+                  (click)="openInfo(ovo.codigo)"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                   (click)="confirmarExclusao(ovo)"></button>
               </td>
@@ -35,7 +31,7 @@
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="6">
+              <td colspan="3">
                 Nenhum ovo encontrado
               </td>
             </tr>
@@ -48,3 +44,41 @@
   <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-button-success mr-2" routerLink="/ovos/novo"></button>
 
 </div>
+
+<p-dialog [(visible)]="showQtdDialog" [style]="{width: '400px'}" header="Adicionar quantidade" [modal]="true"
+  styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="col-12 p-fluid">
+      <label>Quantidade</label>
+      <p-inputNumber name="quantidade" [showButtons]="true" buttonLayout="horizontal" inputId="quantidade"
+        spinnerMode="horizontal" [min]="1" [step]="10" [(ngModel)]="quantidade" decrementButtonClass="p-button-danger"
+        incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Salvar" (click)="atualizarOvos()" icon="pi pi-check"></button>
+    <button pButton pRipple label="Cancelar" (click)="hideDialogQtd()" icon="pi pi-times"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="showInfoDialog" [style]="{width: '400px'}" header="Info" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="col-12 p-fluid">
+      <label>Código</label>
+      <input pInputText type="text" name="codigo" [(ngModel)]="ovosFind.codigo" disabled="true">
+    </div>
+    <div class="col-12 p-fluid">
+      <label>Data</label>
+      <p-calendar name="data" [(ngModel)]="ovosFind.data" disabled="true"></p-calendar>
+    </div>
+    <div class="col-12 p-fluid">
+      <label>Quantidade</label>
+      <input pInputText type="text" name="quantidade" [(ngModel)]="ovosFind.quantidade" disabled="true">
+    </div>
+    <div class="col-12 p-fluid">
+      <label>Unidade</label>
+      <input pInputText type="text" name="unidade" [(ngModel)]="ovosFind.unidade" disabled="true">
+    </div>
+  </ng-template>
+</p-dialog>
