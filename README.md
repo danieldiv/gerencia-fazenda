@@ -7,7 +7,7 @@
 ![License](https://badgen.net/badge/license/MIT/green)
 
 ![VersionJava](https://img.shields.io/badge/Java-17.0.4.1-red)
-![VersionNode](https://img.shields.io/badge/Node-14.17.0-green)
+![VersionNode](https://img.shields.io/badge/Node-14.17.0-success)
 ![VersionNpm](https://img.shields.io/badge/npm-6.14.13-red)
 ![VersionAngular](https://img.shields.io/badge/Angular-14.2.3-red)
 
