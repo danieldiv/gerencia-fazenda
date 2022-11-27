@@ -15,7 +15,7 @@
 
 - Para compilar a aplicação **back-end** é necessário que o java 17 esteja instalado, como a aplicação esta fazendo o uso de banco de dados, foi escolhido o mysql para gerenciamento, o usuario e senha devem ser modificadas em [application.properties](https://github.com/danieldiv/gerencia-fazenda/blob/main/fazenda-api/src/main/resources/application.properties). A compilação será feita utilizando o maven.
 
-- Para compilar a aplicação **front-end** o angular deve estar instalado, fazendo o uso do npm e node. Antes de compilar é necessario baixar os pacotes pacotes atraves do comando `npm install`, apos intalar os pacotes execute `ng serve`. É necessário estar na pasta da aplicação front-end.
+- Para compilar a aplicação **front-end** o angular deve estar instalado, fazendo o uso do npm e node. Antes de compilar é necessario baixar os pacotes atraves do comando `npm install`, apos intalar os pacotes execute `ng serve`. É necessário estar na pasta da aplicação front-end.
 
 - Em ambiente linux foi utilizado o `prompt de comando` para compilar a aplicação api.
 
