@@ -4,8 +4,12 @@
 ![VSCode](https://img.shields.io/badge/IDE-VSCode-blue)
 ![ISOlinux](https://img.shields.io/badge/ISO-Ubuntu-blueviolet)
 ![ISOwin10](https://img.shields.io/badge/ISO-Win10-blue)
-![VersionJava](https://img.shields.io/badge/Java-v17-red)
 ![License](https://badgen.net/badge/license/MIT/green)
+
+![VersionJava](https://img.shields.io/badge/Java-17.0.4.1-red)
+![VersionNode](https://img.shields.io/badge/Node-14.17.0-green)
+![VersionNpm](https://img.shields.io/badge/npm-6.14.13-red)
+![VersionAngular](https://img.shields.io/badge/Angular-14.2.3-red)
 
 # Compilação
 
