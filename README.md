@@ -31,7 +31,7 @@
 
 # Acessando as aplicações
 
-- A aplicação `back-end` será inicilizada na porta 8080 por padrão, para ter acesso a ela é necessário passar por duas autenticações, a primeira envolvendo a aplicacão e a outra envolvendo o usuario. A aplicação `front-end` que estara rodando na porta 4200 traz essas autenticação de uma forma mais amigavel, ou seja, o usuário precisa informar apenas `usuario` e `senha`, a autenticação de aplicação já esta configurada dentro da codificação.
+- A aplicação `back-end` será inicilizada na porta 8080 por padrão, para ter acesso a ela é necessário passar por duas autenticações, a primeira envolvendo a aplicacão e a outra envolvendo o usuario. A aplicação `front-end` que estara rodando na porta 4200 traz essas autenticações de uma forma mais amigavel, ou seja, o usuário precisa informar apenas `usuario` e `senha`, a autenticação de aplicação já esta configurada dentro da codificação.
 
 > O back-end e front por padrão vao inicializar na porta local, ou seja, para acesar aplicação front-end digite `http://localhost:4200/` que será redirecionado para a página de login.
 
