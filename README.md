@@ -27,7 +27,7 @@
 
 - Na pasta do projeto execute `mvn clean package`.
 
-> Para compilar em Windowns ou Linux acesse a pagina target que contem o arquivo .jar, execute o comando `java -jar aplicacao.jar`. Caso tenha problemas, utilize `-DskipTests` para pular os testes.
+> Para compilar em Windowns ou Linux acesse a pasta target que contem o arquivo .jar, execute o comando `java -jar aplicacao.jar`. Caso tenha problemas, utilize `-DskipTests` para pular os testes.
 
 # Acessando as aplicações
 
