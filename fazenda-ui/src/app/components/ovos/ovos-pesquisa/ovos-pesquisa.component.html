@@ -10,21 +10,15 @@
         <p-table [value]="ovos" responsiveLayout="scroll" [responsive]="true" #tabelaOvo>
           <ng-template pTemplate="header">
             <tr>
-              <!-- <th>Codigo</th> -->
-              <!-- <th>Data</th> -->
               <th>Granja</th>
               <th>Quantidade</th>
-              <!-- <th>Unidade</th> -->
               <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-ovo>
             <tr>
-              <!-- <td>{{ovo.codigo}}</td> -->
-              <!-- <td>{{ovo.data}}</td> -->
               <td>{{ovo.granja.codigo}}</td>
               <td>{{ovo.quantidade}}</td>
-              <!-- <td>{{ovo.unidade}}</td> -->
               <td class="col-tri-acoes-header">
                 <button pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-success mr-2"
                   [disabled]="false" (click)="openNew(ovo.codigo)"></button>
@@ -37,7 +31,7 @@
           </ng-template>
           <ng-template pTemplate="emptymessage">
             <tr>
-              <td colspan="5">
+              <td colspan="3">
                 Nenhum ovo encontrado
               </td>
             </tr>

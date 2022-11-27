@@ -10,30 +10,39 @@
         <p-table [value]="plantios" responsiveLayout="scroll" [responsive]="true" #tabelaPlantio>
           <ng-template pTemplate="header">
             <tr>
-              <th>Codigo</th>
+              <!-- <th>Codigo</th> -->
               <th>Campo</th>
               <th>Cultura</th>
-              <th>Data Plantio</th>
-              <th>Data Colheita</th>
+              <!-- <th>Data Plantio</th>
+              <th>Data Colheita</th> -->
               <th>Qtd Colhido</th>
-              <th>Situacao</th>
-              <th>Unidade</th>
+              <!-- <th>Situacao</th>
+              <th>Unidade</th> -->
               <th></th>
             </tr>
           </ng-template>
           <ng-template pTemplate="body" let-plantio>
             <tr>
-              <td>{{plantio.codigo}}</td>
+              <!-- <td>{{plantio.codigo}}</td> -->
               <td>{{plantio.campo.codigo}}</td>
               <td>{{plantio.cultura.descricao}}</td>
-              <td>{{plantio.dataPlantio}}</td>
-              <td>{{plantio.dataColheita}}</td>
+              <!-- <td>{{plantio.dataPlantio}}</td>
+              <td>{{plantio.dataColheita}}</td> -->
               <td>{{plantio.qtdColhido}}</td>
-              <td>{{plantio.situacao}}</td>
-              <td>{{plantio.unidade}}</td>
-              <td class="col-acoes-header">
+              <!-- <td>{{plantio.situacao}}</td>
+              <td>{{plantio.unidade}}</td> -->
+              <!-- <td class="col-acoes-header">
                 <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
                   [disabled]="true" [routerLink]="['/plantios', plantio.codigo]"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                  (click)="confirmarExclusao(plantio)"></button>
+              </td> -->
+
+              <td class="col-tri-acoes-header">
+                <button pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-success mr-2"
+                  [disabled]="false" (click)="openAddQtd(plantio.codigo)"></button>
+                <button pButton pRipple icon="pi pi-search" class="p-button-rounded p-button-primary mr-2"
+                  (click)="openInfo(plantio.codigo)"></button>
                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                   (click)="confirmarExclusao(plantio)"></button>
               </td>
@@ -55,3 +64,42 @@
     routerLink="/plantios/novo"></button>
 
 </div>
+
+
+<p-dialog [(visible)]="showQtdDialog" [style]="{width: '400px'}" header="Adicionar quantidade" [modal]="true"
+  styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="col-12 p-fluid">
+      <label>Quantidade</label>
+      <p-inputNumber name="quantidade" [showButtons]="true" buttonLayout="horizontal" inputId="quantidade"
+        spinnerMode="horizontal" [min]="1" [step]="10" [(ngModel)]="quantidade" decrementButtonClass="p-button-danger"
+        incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+      </p-inputNumber>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Salvar" (click)="atualizarPlantio()" icon="pi pi-check"></button>
+    <button pButton pRipple label="Cancelar" (click)="hideDialogQtd()" icon="pi pi-times"></button>
+  </ng-template>
+</p-dialog>
+
+<p-dialog [(visible)]="showInfoDialog" [style]="{width: '400px'}" header="Info" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <!-- <div class="col-12 p-fluid">
+      <label>Código</label>
+      <input pInputText type="text" name="codigo" [(ngModel)]="ovosFind.codigo" disabled="true">
+    </div>
+    <div class="col-12 p-fluid">
+      <label>Data</label>
+      <p-calendar name="data" [(ngModel)]="ovosFind.data" disabled="true"></p-calendar>
+    </div>
+    <div class="col-12 p-fluid">
+      <label>Quantidade</label>
+      <input pInputText type="text" name="quantidade" [(ngModel)]="ovosFind.quantidade" disabled="true">
+    </div>
+    <div class="col-12 p-fluid">
+      <label>Unidade</label>
+      <input pInputText type="text" name="unidade" [(ngModel)]="ovosFind.unidade" disabled="true">
+    </div> -->
+  </ng-template>
+</p-dialog>
